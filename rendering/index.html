@@ -994,16 +994,16 @@
 <p>When installing the RLBotGUI, rendering will be disabled by default. You can turn it on by clicking 'Extra' and ticking 'Enable Rendering' in the GUI. However, rendering can also be enabled or disabled any time using the <code>page up</code> and <code>page down</code> keys, respectively. So if your rendering isn't appearing, make sure to press <code>page up</code> before panicking.</p>
 <h3 id="the-basics">The basics</h3>
 <p>The renderer object is built into the BaseAgent class, so you don't need to import anything other than the BaseAgent. Each time you want to render something, you start with <code>self.renderer.begin_rendering()</code> and end with <code>self.renderer.end_rendering()</code>. The rendering code goes in between the <code>begin_rendering()</code> and <code>end_rendering()</code>. Let's take a look at an example:</p>
-<pre><code class="language-python">class RenderingTutorial(BaseAgent):
-    def get_output(self, packet: GameTickPacket) -&gt; SimpleControllerState:
-        controller = SimpleControllerState()
-
-        self.renderer.begin_rendering()
-        self.renderer.draw_rect_2d(20, 20, 200, 200, True, self.renderer.black())
-        self.renderer.end_rendering()
-
-        return controller
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span> <span class="nc">RenderingTutorial</span><span class="p">(</span><span class="n">BaseAgent</span><span class="p">):</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span> <span class="nf">get_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">:</span> <span class="n">GameTickPacket</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SimpleControllerState</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="n">controller</span> <span class="o">=</span> <span class="n">SimpleControllerState</span><span class="p">()</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">begin_rendering</span><span class="p">()</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">draw_rect_2d</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">black</span><span class="p">())</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">end_rendering</span><span class="p">()</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="k">return</span> <span class="n">controller</span>
+</code></pre></div>
 <p>We can see here that every <code>get_output</code> call, the on-screen drawings get updated. In this example, the <code>draw_rect_2d</code> method is used. Let's go over all the methods you can use:</p>
 <p>(Note: The argument names aren't exactly what appear in the framework itself, but the argument positions are the same)</p>
 <h1 id="rendering-a-large-amount">Rendering a large amount</h1>
@@ -1011,137 +1011,115 @@
 - MessageLargerThanMax
 - Not sending message to Rocket League because that would bring the bytes sent since last receive to...</p>
 <p>You can bypass the MessageLargerThanMax one by using multiple render groups. Example:</p>
-<pre><code class="language-python">self.renderer.begin_rendering('my_big_render')
-for i in range(0, 200):
-    self.renderer.draw_rect_3d(...)
-self.renderer.end_rendering()
-
-self.renderer.begin_rendering('my_big_render_part_2')
-for i in range(200, 400):
-    self.renderer.draw_rect_3d(...)
-self.renderer.end_rendering()
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">begin_rendering</span><span class="p">(</span><span class="s1">&#39;my_big_render&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">):</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">draw_rect_3d</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">end_rendering</span><span class="p">()</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">begin_rendering</span><span class="p">(</span><span class="s1">&#39;my_big_render_part_2&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">):</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">draw_rect_3d</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">end_rendering</span><span class="p">()</span>
+</code></pre></div>
 <p>If you hit the other limit, you're out of luck.</p>
 <h1 id="renderercreate_color-and-other-colors">renderer.create_color and other colors</h1>
-<pre><code>create_color(a, r, g, b)
-</code></pre>
-<ul>
-<li>a, r, g, b - Alpha, red, green, blue. From 0 to 255.</li>
-</ul>
-<p>This doesn't draw anything on screen, but it is used for creating colors that you can use for the other methods that draw on screen. The renderer also has a list of color methods that gives you the most common colors:</p>
-<pre><code>renderer.black()
-renderer.white()
-renderer.gray()
-renderer.blue()
-renderer.red()
-renderer.green()
-renderer.lime()
-renderer.yellow()
-renderer.orange()
-renderer.cyan()
-renderer.pink()
-renderer.purple()
-renderer.teal()
-</code></pre>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>create_color(a, r, g, b)
+</code></pre></div>
+* a, r, g, b - Alpha, red, green, blue. From 0 to 255.</p>
+<p>This doesn't draw anything on screen, but it is used for creating colors that you can use for the other methods that draw on screen. The renderer also has a list of color methods that gives you the most common colors:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>renderer.black()
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>renderer.white()
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>renderer.gray()
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>renderer.blue()
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>renderer.red()
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>renderer.green()
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>renderer.lime()
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>renderer.yellow()
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>renderer.orange()
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>renderer.cyan()
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>renderer.pink()
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>renderer.purple()
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>renderer.teal()
+</code></pre></div></p>
 <p>Lastly, there's the <code>team_color</code> method. Using this your bot renders with different colors depending on which team it is on.</p>
-<pre><code>team_color(team=None, alt_color=False)
-</code></pre>
-<ul>
-<li>team - (Optional, None by default) Index of a team (0 for blue, 1 for orange) or None. If set to None, it will use calling bot's team.</li>
-<li>alt_color - (Optional, False by default) Wether or not to return the alternate team color instead. If set to False, this method returns blue for blue team and orange for orange team. If set to True, this method returns cyan for blue team and red for orange team.</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>team_color(team=None, alt_color=False)
+</code></pre></div>
+* team - (Optional, None by default) Index of a team (0 for blue, 1 for orange) or None. If set to None, it will use calling bot's team.
+* alt_color - (Optional, False by default) Wether or not to return the alternate team color instead. If set to False, this method returns blue for blue team and orange for orange team. If set to True, this method returns cyan for blue team and red for orange team.</p>
 <h1 id="rendererdraw_rect_2d">renderer.draw_rect_2d</h1>
 <p>This draws a rectangle on screen. Example : draw_rect_2d(20, 20, 200, 200, True, self.renderer.black()) <img alt="example" src="../img/rendering/rect.jpg" /></p>
-<pre><code>draw_rect_2d(x, y, width, height, fill, color)
-</code></pre>
-<ul>
-<li>x, y - The top left x and y screen coordinates for the rectangle. (0, 0) is the top left of the screen.</li>
-<li>width, height - The width and height of the rectangle.</li>
-<li>fill - If True, the entire rectangle is filled with color, else it is just an outline of color.</li>
-<li>color - The color of the rectangle. See <code>renderer.create_color</code>.</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>draw_rect_2d(x, y, width, height, fill, color)
+</code></pre></div>
+* x, y - The top left x and y screen coordinates for the rectangle. (0, 0) is the top left of the screen.
+* width, height - The width and height of the rectangle.
+* fill - If True, the entire rectangle is filled with color, else it is just an outline of color.
+* color - The color of the rectangle. See <code>renderer.create_color</code>.</p>
 <h1 id="rendererdraw_line_2d">renderer.draw_line_2d</h1>
 <p><strong>NOTE: Currently not supported.</strong></p>
 <p>Draws a 2D line flat on the screen.</p>
-<pre><code>draw_line_2d(start_x, start_y, end_x, end_y)
-</code></pre>
-<ul>
-<li>start_x, start_y - Where the line starts. (0, 0) is the top left of the screen.</li>
-<li>end_x, end_y - Where the line ends.</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>draw_line_2d(start_x, start_y, end_x, end_y)
+</code></pre></div>
+* start_x, start_y - Where the line starts. (0, 0) is the top left of the screen.
+* end_x, end_y - Where the line ends.</p>
 <h1 id="rendererdraw_string_2d">renderer.draw_string_2d</h1>
 <p>Draws 2D text flat on the screen. Example : draw_string_2d(20, 20, 3, 3, ball_text, self.renderer.black()) <a href="../img/rendering/string.jpg">example</a></p>
-<pre><code>draw_string_2d(x, y, scale_x, scale_y, text, color)
-</code></pre>
-<ul>
-<li>x, y - The top left x and y screen coordinates for the string. (0, 0) is the top left of the screen.</li>
-<li>scale_x, scale_y - The horizontal and vertical scale of the text.</li>
-<li>text - The text to render.</li>
-<li>color - The color of the string. See <code>renderer.create_color</code>.</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>draw_string_2d(x, y, scale_x, scale_y, text, color)
+</code></pre></div>
+* x, y - The top left x and y screen coordinates for the string. (0, 0) is the top left of the screen.
+* scale_x, scale_y - The horizontal and vertical scale of the text.
+* text - The text to render.
+* color - The color of the string. See <code>renderer.create_color</code>.</p>
 <h1 id="rendererdraw_rect_3d">renderer.draw_rect_3d</h1>
 <p>Draws a 2D rectangle in game's 3D space. Size does not change with distance.
  <!-- TODO: Broken gfycat example [Example : draw_rect_3d(ball_location, 20, 20, True, self.renderer.black())](https://gfycat.com/SharpEllipticalAmericanwirehair) -->
 </p>
-<pre><code>draw_rect_3d(location, width, height, fill, color)
-</code></pre>
-<ul>
-<li>location - The 3D game location where the rectangle should be drawn. Must be a Python list or a tuple (cannot be a ctypes or flatbuffers type).</li>
-<li>width, height - The width and height of the rectangle.</li>
-<li>fill - If True, the entire rectangle is filled with color, else it is just an outline of color.</li>
-<li>color - The color of the rectangle. See <code>renderer.create_color</code>.</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>draw_rect_3d(location, width, height, fill, color)
+</code></pre></div>
+* location - The 3D game location where the rectangle should be drawn. Must be a Python list or a tuple (cannot be a ctypes or flatbuffers type).
+* width, height - The width and height of the rectangle.
+* fill - If True, the entire rectangle is filled with color, else it is just an outline of color.
+* color - The color of the rectangle. See <code>renderer.create_color</code>.</p>
 <h1 id="rendererdraw_string_3d">renderer.draw_string_3d</h1>
 <p>Draws 2D text in game's 3D space. Size does not change with distance. </p>
 <!-- TODO: Broken gfycat example [Example : draw_string_3d((0, 0, 0), 2, 2, "Hello RLBot!", self.renderer.black())](https://gfycat.com/FairMilkyCuscus) -->
 
-<pre><code>draw_string_3d(location, scale_x, scale_y, text, color)
-</code></pre>
-<ul>
-<li>location - The 3D game location where the text should be drawn. Must be a Python list or a tuple (cannot be a ctypes or flatbuffers type).</li>
-<li>scale_x, scale_y - The horizontal and vertical scale of the text.</li>
-<li>text - The text to render.</li>
-<li>color - The color of the text. See <code>renderer.create_color</code>.</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>draw_string_3d(location, scale_x, scale_y, text, color)
+</code></pre></div>
+* location - The 3D game location where the text should be drawn. Must be a Python list or a tuple (cannot be a ctypes or flatbuffers type).
+* scale_x, scale_y - The horizontal and vertical scale of the text.
+* text - The text to render.
+* color - The color of the text. See <code>renderer.create_color</code>.</p>
 <h1 id="rendererdraw_line_3d">renderer.draw_line_3d</h1>
 <p>Draws a 2D line in game's 3D space. Size does not change with distance.</p>
 <!-- TODO: Broken gfycat example [Example :_draw_line_3d(car_location, enemy_location, self.renderer.red())](https://gfycat.com/RemorsefulFormalJellyfish) -->
 
-<pre><code>draw_line_3d(start, end, color)
-</code></pre>
-<ul>
-<li>start, end - The starting and ending 3D game locations of the line. Must be Python lists or tuples (cannot be ctypes or flatbuffers types).</li>
-<li>color - The color of the line. See <code>renderer.create_color</code>.</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>draw_line_3d(start, end, color)
+</code></pre></div>
+* start, end - The starting and ending 3D game locations of the line. Must be Python lists or tuples (cannot be ctypes or flatbuffers types).
+* color - The color of the line. See <code>renderer.create_color</code>.</p>
 <h1 id="rendererdraw_line_2d_3d">renderer.draw_line_2d_3d</h1>
 <p><strong>NOTE: Currently not supported.</strong></p>
 <p>Draws a 2D line which starts at screen coordinates and ends at the game's 3D coordinate.</p>
 <!-- TODO: Broken gfycat example [Example : draw_line_2d_3d(0, 0, (0, 0, 0), self.renderer.black())](https://gfycat.com/ScentedQuarterlyLemming) -->
 
-<pre><code>draw_line_2d_3d(start_2d_x, start_2d_y, end_3d, color)
-</code></pre>
-<ul>
-<li>start_2d_x, start_2d_y - Where the line starts (on the screen).</li>
-<li>end_3d - Where the line ends (in 3D space). Must be a Python list or tuple (cannot be a ctypes or flatbuffers type).</li>
-<li>color - The color of the line. See <code>renderer.create_color</code>.</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>draw_line_2d_3d(start_2d_x, start_2d_y, end_3d, color)
+</code></pre></div>
+* start_2d_x, start_2d_y - Where the line starts (on the screen).
+* end_3d - Where the line ends (in 3D space). Must be a Python list or tuple (cannot be a ctypes or flatbuffers type).
+* color - The color of the line. See <code>renderer.create_color</code>.</p>
 <h1 id="rendererdraw_polyline_2d">renderer.draw_polyline_2d</h1>
 <p><strong>NOTE: Currently not supported.</strong></p>
 <p>Draws multiple connected 2D lines flat on the screen. Useful for rendering paths or pictures.</p>
-<pre><code>draw_polyline_2d(locations, color)
-</code></pre>
-<ul>
-<li>locations - A list of 2D points. A line will be drawn from first point to the second point, and from second point to the third point, ect. (0, 0) is the top left of the screen.</li>
-<li>color - The color of the line. See <code>renderer.create_color</code>.</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>draw_polyline_2d(locations, color)
+</code></pre></div>
+* locations - A list of 2D points. A line will be drawn from first point to the second point, and from second point to the third point, ect. (0, 0) is the top left of the screen.
+* color - The color of the line. See <code>renderer.create_color</code>.</p>
 <h1 id="rendererdraw_polyline_3d">renderer.draw_polyline_3d</h1>
 <p>Draws multiple connected lines in the game's 3D space. Useful for rendering paths. Size does not change with distance.</p>
-<pre><code>draw_polyline_3d(locations, color)
-</code></pre>
-<ul>
-<li>locations - A list of 3D locations. A line will be drawn from first location to the second location, and from second location to the third location, ect. Each location must be a Python list or tuple (cannot be a ctypes or flatbuffers type).</li>
-<li>color - The color of the line. See <code>renderer.create_color</code>.</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>draw_polyline_3d(locations, color)
+</code></pre></div>
+* locations - A list of 3D locations. A line will be drawn from first location to the second location, and from second location to the third location, ect. Each location must be a Python list or tuple (cannot be a ctypes or flatbuffers type).
+* color - The color of the line. See <code>renderer.create_color</code>.</p>
 
 
 

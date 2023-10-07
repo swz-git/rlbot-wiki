@@ -1050,20 +1050,20 @@
   <h1>Dropshot</h1>
 
 <p>As of August 19. 2018 the RLBot framework officially supports Dropshot with access to locations and states of floor tiles. This page contains information and useful values related to the Dropshot game mode.</p>
-<p>To make RLBot start a Dropshot game you have to set the following values in <code>rlbot.cfg</code>:</p>
-<pre><code>game_mode = Dropshot
-game_map = DropShot_Core707
-</code></pre>
+<p>To make RLBot start a Dropshot game you have to set the following values in <code>rlbot.cfg</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>game_mode = Dropshot
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>game_map = DropShot_Core707
+</code></pre></div></p>
 <h2 id="tiles">Tiles</h2>
 <p>There are 140 tiles in total.
 Locations and owning team can be found in the agent's FieldInfo as GoalInfo objects. In Python <code>self.get_field_info().goals</code> will be a list of the floor tiles with following attributes:</p>
-<pre><code>GoalInfo: {
-  'team_num': int,
-  'location': Vector3,
-  'direction': Vector3,
-}
-</code></pre>
-<p>Example: To access the location of tile 0 in Python, write: <code>self.get_field_info().goals[0].location</code></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GoalInfo: {
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  &#39;team_num&#39;: int,
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  &#39;location&#39;: Vector3,
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  &#39;direction&#39;: Vector3,
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>}
+</code></pre></div>
+Example: To access the location of tile 0 in Python, write: <code>self.get_field_info().goals[0].location</code></p>
 <p>A list of all locations can be found <a href="https://pastebin.com/w79VhU8W">here</a>.</p>
 <p>To access the state of tile 0 in Python, write: <code>packet.dropshot_tiles[0].tile_state</code>. This is an integer which corresponds to:</p>
 <ul>
@@ -1090,23 +1090,23 @@ Locations and owning team can be found in the agent's FieldInfo as GoalInfo obje
 <p>Note that the tiles on the boundaries are not complete - the rounded base of the walls overlaps the tiles to varying degrees (approximately 30-40% of the tile is overlapped, and the tile centrepoints are always visible). </p>
 <p>You may notice that tiles' locations are at z=0, but floor level is z=3.2. This is because the tiles have a thickness.</p>
 <h4 id="within-arena-script">Within arena script</h4>
-<p>Here's a small script to check if a point is within the arena:</p>
-<pre><code class="language-python">def is_within_arena(point):
-    HEIGHT = 1986
-    TO_WALL = 4555
-    TO_CORNER = 5260  # 4555 / math.sin(60)
-
-    if point.z &lt; 0 or HEIGHT &lt; point.z:
-        return False
-
-    ax = abs(point.x)
-    ay = abs(point.y)
-
-    if TO_CORNER &lt; ax or TO_WALL &lt; ay:
-        return False
-
-    return TO_WALL * TO_CORNER - TO_WALL * ax - 0.5 * TO_CORNER * ay &gt;= 0;
-</code></pre>
+<p>Here's a small script to check if a point is within the arena:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">is_within_arena</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">1986</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">TO_WALL</span> <span class="o">=</span> <span class="mi">4555</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="n">TO_CORNER</span> <span class="o">=</span> <span class="mi">5260</span>  <span class="c1"># 4555 / math.sin(60)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="k">if</span> <span class="n">point</span><span class="o">.</span><span class="n">z</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">HEIGHT</span> <span class="o">&lt;</span> <span class="n">point</span><span class="o">.</span><span class="n">z</span><span class="p">:</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">ax</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">ay</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="k">if</span> <span class="n">TO_CORNER</span> <span class="o">&lt;</span> <span class="n">ax</span> <span class="ow">or</span> <span class="n">TO_WALL</span> <span class="o">&lt;</span> <span class="n">ay</span><span class="p">:</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="k">return</span> <span class="n">TO_WALL</span> <span class="o">*</span> <span class="n">TO_CORNER</span> <span class="o">-</span> <span class="n">TO_WALL</span> <span class="o">*</span> <span class="n">ax</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">TO_CORNER</span> <span class="o">*</span> <span class="n">ay</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span>
+</code></pre></div></p>
 <h2 id="ball">Ball</h2>
 <p>Ball radius: 102.24 uu</p>
 <p>The GameTickPacket contains Dropshot info about the ball. It can be found in the DropshotBallInfo object at <code>packet.game_ball.drop_shot_info</code> which contains the variables: <code>absorbed_force</code>, <code>damage_index</code>, and <code>force_accum_recent</code>.</p>

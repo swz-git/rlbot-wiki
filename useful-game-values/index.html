@@ -1108,42 +1108,42 @@
 <p>A car picks up a boost pad if the car's center of mass (not hitbox) enters the pad's hitbox. This interaction is different when cars are standing still (see the <a href="https://www.youtube.com/watch?v=xgfa-qZyInw">Rocket Science video on boost pad hitboxes</a>)</p>
 <p>The coordinates of the 34 boost pads (in the order that RLBot uses):</p>
 <p><img alt="" src="../img/useful-game-values/boost-pads.jpg" /></p>
-<pre><code>[    0.0, -4240.0, 70.0] (0)
-[-1792.0, -4184.0, 70.0] (1)
-[ 1792.0, -4184.0, 70.0] (2)
-[-3072.0, -4096.0, 73.0] (3)
-[ 3072.0, -4096.0, 73.0] (4)
-[- 940.0, -3308.0, 70.0] (5)
-[  940.0, -3308.0, 70.0] (6)
-[    0.0, -2816.0, 70.0] (7)
-[-3584.0, -2484.0, 70.0] (8)
-[ 3584.0, -2484.0, 70.0] (9)
-[-1788.0, -2300.0, 70.0] (10)
-[ 1788.0, -2300.0, 70.0] (11)
-[-2048.0, -1036.0, 70.0] (12)
-[    0.0, -1024.0, 70.0] (13)
-[ 2048.0, -1036.0, 70.0] (14)
-[-3584.0,     0.0, 73.0] (15)
-[-1024.0,     0.0, 70.0] (16)
-[ 1024.0,     0.0, 70.0] (17)
-[ 3584.0,     0.0, 73.0] (18)
-[-2048.0,  1036.0, 70.0] (19)
-[    0.0,  1024.0, 70.0] (20)
-[ 2048.0,  1036.0, 70.0] (21)
-[-1788.0,  2300.0, 70.0] (22)
-[ 1788.0,  2300.0, 70.0] (23)
-[-3584.0,  2484.0, 70.0] (24)
-[ 3584.0,  2484.0, 70.0] (25)
-[    0.0,  2816.0, 70.0] (26)
-[- 940.0,  3310.0, 70.0] (27)
-[  940.0,  3308.0, 70.0] (28)
-[-3072.0,  4096.0, 73.0] (29)
-[ 3072.0,  4096.0, 73.0] (30)
-[-1792.0,  4184.0, 70.0] (31)
-[ 1792.0,  4184.0, 70.0] (32)
-[    0.0,  4240.0, 70.0] (33)
-</code></pre>
-<p><strong>NOTE:</strong> Some boost pad locations vary from map to map. It is recommended to use the <a href="https://github.com/RLBot/RLBotPythonExample/wiki/Input-and-Output-Data#field-info">FieldInfo</a>, if you want to have the correct locations for any map.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[    0.0, -4240.0, 70.0] (0)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>[-1792.0, -4184.0, 70.0] (1)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>[ 1792.0, -4184.0, 70.0] (2)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>[-3072.0, -4096.0, 73.0] (3)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>[ 3072.0, -4096.0, 73.0] (4)
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>[- 940.0, -3308.0, 70.0] (5)
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>[  940.0, -3308.0, 70.0] (6)
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>[    0.0, -2816.0, 70.0] (7)
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>[-3584.0, -2484.0, 70.0] (8)
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>[ 3584.0, -2484.0, 70.0] (9)
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>[-1788.0, -2300.0, 70.0] (10)
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>[ 1788.0, -2300.0, 70.0] (11)
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>[-2048.0, -1036.0, 70.0] (12)
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>[    0.0, -1024.0, 70.0] (13)
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>[ 2048.0, -1036.0, 70.0] (14)
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>[-3584.0,     0.0, 73.0] (15)
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>[-1024.0,     0.0, 70.0] (16)
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>[ 1024.0,     0.0, 70.0] (17)
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>[ 3584.0,     0.0, 73.0] (18)
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>[-2048.0,  1036.0, 70.0] (19)
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>[    0.0,  1024.0, 70.0] (20)
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>[ 2048.0,  1036.0, 70.0] (21)
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>[-1788.0,  2300.0, 70.0] (22)
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>[ 1788.0,  2300.0, 70.0] (23)
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>[-3584.0,  2484.0, 70.0] (24)
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>[ 3584.0,  2484.0, 70.0] (25)
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>[    0.0,  2816.0, 70.0] (26)
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>[- 940.0,  3310.0, 70.0] (27)
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>[  940.0,  3308.0, 70.0] (28)
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>[-3072.0,  4096.0, 73.0] (29)
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>[ 3072.0,  4096.0, 73.0] (30)
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>[-1792.0,  4184.0, 70.0] (31)
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>[ 1792.0,  4184.0, 70.0] (32)
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>[    0.0,  4240.0, 70.0] (33)
+</code></pre></div>
+<strong>NOTE:</strong> Some boost pad locations vary from map to map. It is recommended to use the <a href="https://github.com/RLBot/RLBotPythonExample/wiki/Input-and-Output-Data#field-info">FieldInfo</a>, if you want to have the correct locations for any map.</p>
 <h2 id="spawn-locations">Spawn Locations</h2>
 <table>
 <thead>
@@ -1269,29 +1269,27 @@
 <li>Maximum car angular velocity: 5.5 radians/s</li>
 <li>Turning</li>
 <li>Turning in Rocket League is very complex and not a lot is known. Hopefully, the numbers below can help you out a bit!</li>
-<li>Turn radius: https://samuelpmish.github.io/notes/RocketLeague/ground_control/#turning. Python implementation:</li>
-</ul>
-<pre><code class="language-python">def turn_radius(v):
-    if v == 0:
-        return 0
-    return 1.0 / curvature(v)
-
-# v is the magnitude of the velocity in the car's forward direction
-def curvature(v):
-    if 0.0 &lt;= v &lt; 500.0:
-        return 0.006900 - 5.84e-6 * v
-    if 500.0 &lt;= v &lt; 1000.0:
-        return 0.005610 - 3.26e-6 * v
-    if 1000.0 &lt;= v &lt; 1500.0:
-        return 0.004300 - 1.95e-6 * v
-    if 1500.0 &lt;= v &lt; 1750.0:
-        return 0.003025 - 1.1e-6 * v
-    if 1750.0 &lt;= v &lt; 2500.0:
-        return 0.001800 - 4e-7 * v
-
-    return 0.0
-</code></pre>
-<ul>
+<li>Turn radius: https://samuelpmish.github.io/notes/RocketLeague/ground_control/#turning. Python implementation:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">turn_radius</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        <span class="k">return</span> <span class="mi">0</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">curvature</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># v is the magnitude of the velocity in the car&#39;s forward direction</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">def</span> <span class="nf">curvature</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="k">if</span> <span class="mf">0.0</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mf">500.0</span><span class="p">:</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="k">return</span> <span class="mf">0.006900</span> <span class="o">-</span> <span class="mf">5.84e-6</span> <span class="o">*</span> <span class="n">v</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="k">if</span> <span class="mf">500.0</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mf">1000.0</span><span class="p">:</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="k">return</span> <span class="mf">0.005610</span> <span class="o">-</span> <span class="mf">3.26e-6</span> <span class="o">*</span> <span class="n">v</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>    <span class="k">if</span> <span class="mf">1000.0</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mf">1500.0</span><span class="p">:</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        <span class="k">return</span> <span class="mf">0.004300</span> <span class="o">-</span> <span class="mf">1.95e-6</span> <span class="o">*</span> <span class="n">v</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="k">if</span> <span class="mf">1500.0</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mf">1750.0</span><span class="p">:</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="k">return</span> <span class="mf">0.003025</span> <span class="o">-</span> <span class="mf">1.1e-6</span> <span class="o">*</span> <span class="n">v</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="k">if</span> <span class="mf">1750.0</span> <span class="o">&lt;=</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mf">2500.0</span><span class="p">:</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        <span class="k">return</span> <span class="mf">0.001800</span> <span class="o">-</span> <span class="mf">4e-7</span> <span class="o">*</span> <span class="n">v</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="k">return</span> <span class="mf">0.0</span>
+</code></pre></div></li>
 <li>No matter if you're accelerating or decelerating, (as the throttle is 1) the car's turn radius and velocity balance out so the car turns 90 degrees in about 0.775 seconds, 180 degrees in 1.55 seconds, and 360 degrees in 3.1 seconds.</li>
 <li>
 <p>Accelerating while turning (starting from a standstill with throttle and steer set to 1)</p>
@@ -1300,23 +1298,20 @@ def curvature(v):
 <li>The speed of the car after x time can be estimated with the following equation: <code>1234 * (1 - e ^ [-{time / 0.74704}])</code></li>
 </ul>
 <p><img alt="Graph of the velocity while turning starting from 0" src="../img/useful-game-values/car1.png" /></p>
-<p>Example Python implementation:</p>
+<p>Example Python implementation:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">math</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">VMAX</span> <span class="o">=</span> <span class="mi">1234</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">TAU</span> <span class="o">=</span> <span class="mf">0.74704</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">def</span> <span class="nf">get_speed_from_time_turning</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="k">return</span> <span class="n">VMAX</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">time</span> <span class="o">/</span> <span class="n">TAU</span><span class="p">)))</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">def</span> <span class="nf">get_turn_time_from_speed</span><span class="p">(</span><span class="n">speed</span><span class="p">):</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">speed_adj</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">speed</span> <span class="o">/</span> <span class="n">VMAX</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="k">return</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">speed_adj</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">e</span><span class="p">)</span> <span class="o">*</span> <span class="n">TAU</span>
+</code></pre></div></p>
 </li>
-</ul>
-<pre><code class="language-python">import math
-
-VMAX = 1234
-TAU = 0.74704
-
-def get_speed_from_time_turning(time):
-    return VMAX * (1 - math.exp(-(time / TAU)))
-
-def get_turn_time_from_speed(speed):
-    speed_adj = -(speed / VMAX - 1)
-    return -math.log(speed_adj, math.e) * TAU
-
-</code></pre>
-<ul>
 <li>
 <p>Decelerating while turning (starting from the top speed with throttle and steer set to 1)</p>
 <ul>
@@ -1327,66 +1322,66 @@ def get_turn_time_from_speed(speed):
 <p>Example Python implementation:</p>
 </li>
 </ul>
-<pre><code class="language-python">def get_speed_from_time_turning(time):
-    if time &gt;= 7.5:
-        return 1234
-
-    if time &gt;= 4.5:
-        return 1272.889 - 5.185 * time
-
-    if time &gt;= 4:
-        return 1380 - 27.5 * time
-
-    if time &gt;= 3.2:
-        return 1530 - 65 * time
-
-    if time &gt;= 2.6:
-        return 1743.333 - 131.667 * time
-
-    if time &gt;= 1.3:
-        return 2247 - 325.384615 * time
-
-    if time &gt;= 0.3:
-        return 2344 - 400 * time
-
-    if time &gt;= 0.1:
-        return 2323 - 330 * time
-
-    if time &gt; 0:
-        return 2300 - 100 * time
-
-    return 2300
-
-def get_time_turning_from_speed(speed):
-    if speed &lt;= 1234:
-        return 7.5
-
-    if speed &lt;= 1248:
-        return 245.4857 - 0.192857 * speed
-
-    if speed &lt;= 1270:
-        return 50.18 - 0.03636 * speed
-
-    if speed &lt;= 1322:
-        return 23.53846 - 0.01538 * speed
-
-    if speed &lt;= 1401:
-        return 13.24 - 0.007595 * speed
-
-    if speed &lt;= 1824:
-        return 6.9 - 0.00307 * speed
-
-    if speed &lt;= 2224:
-        return 5.86 - 0.0025 * speed
-
-    if speed &lt;= 2290:
-        return 7.039 - 0.00303 * speed
-
-    if speed &lt;= 2300:
-        return 23 - 0.01 * speed
-
-    return 0
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">get_speed_from_time_turning</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="mf">7.5</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="k">return</span> <span class="mi">1234</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="mf">4.5</span><span class="p">:</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="k">return</span> <span class="mf">1272.889</span> <span class="o">-</span> <span class="mf">5.185</span> <span class="o">*</span> <span class="n">time</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">:</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="k">return</span> <span class="mi">1380</span> <span class="o">-</span> <span class="mf">27.5</span> <span class="o">*</span> <span class="n">time</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="mf">3.2</span><span class="p">:</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="k">return</span> <span class="mi">1530</span> <span class="o">-</span> <span class="mi">65</span> <span class="o">*</span> <span class="n">time</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="mf">2.6</span><span class="p">:</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="k">return</span> <span class="mf">1743.333</span> <span class="o">-</span> <span class="mf">131.667</span> <span class="o">*</span> <span class="n">time</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="mf">1.3</span><span class="p">:</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>        <span class="k">return</span> <span class="mi">2247</span> <span class="o">-</span> <span class="mf">325.384615</span> <span class="o">*</span> <span class="n">time</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="mf">0.3</span><span class="p">:</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>        <span class="k">return</span> <span class="mi">2344</span> <span class="o">-</span> <span class="mi">400</span> <span class="o">*</span> <span class="n">time</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;=</span> <span class="mf">0.1</span><span class="p">:</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>        <span class="k">return</span> <span class="mi">2323</span> <span class="o">-</span> <span class="mi">330</span> <span class="o">*</span> <span class="n">time</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    <span class="k">if</span> <span class="n">time</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>        <span class="k">return</span> <span class="mi">2300</span> <span class="o">-</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">time</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    <span class="k">return</span> <span class="mi">2300</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="k">def</span> <span class="nf">get_time_turning_from_speed</span><span class="p">(</span><span class="n">speed</span><span class="p">):</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    <span class="k">if</span> <span class="n">speed</span> <span class="o">&lt;=</span> <span class="mi">1234</span><span class="p">:</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>        <span class="k">return</span> <span class="mf">7.5</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    <span class="k">if</span> <span class="n">speed</span> <span class="o">&lt;=</span> <span class="mi">1248</span><span class="p">:</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>        <span class="k">return</span> <span class="mf">245.4857</span> <span class="o">-</span> <span class="mf">0.192857</span> <span class="o">*</span> <span class="n">speed</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>    <span class="k">if</span> <span class="n">speed</span> <span class="o">&lt;=</span> <span class="mi">1270</span><span class="p">:</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>        <span class="k">return</span> <span class="mf">50.18</span> <span class="o">-</span> <span class="mf">0.03636</span> <span class="o">*</span> <span class="n">speed</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>    <span class="k">if</span> <span class="n">speed</span> <span class="o">&lt;=</span> <span class="mi">1322</span><span class="p">:</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>        <span class="k">return</span> <span class="mf">23.53846</span> <span class="o">-</span> <span class="mf">0.01538</span> <span class="o">*</span> <span class="n">speed</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    <span class="k">if</span> <span class="n">speed</span> <span class="o">&lt;=</span> <span class="mi">1401</span><span class="p">:</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>        <span class="k">return</span> <span class="mf">13.24</span> <span class="o">-</span> <span class="mf">0.007595</span> <span class="o">*</span> <span class="n">speed</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>    <span class="k">if</span> <span class="n">speed</span> <span class="o">&lt;=</span> <span class="mi">1824</span><span class="p">:</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>        <span class="k">return</span> <span class="mf">6.9</span> <span class="o">-</span> <span class="mf">0.00307</span> <span class="o">*</span> <span class="n">speed</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>    <span class="k">if</span> <span class="n">speed</span> <span class="o">&lt;=</span> <span class="mi">2224</span><span class="p">:</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>        <span class="k">return</span> <span class="mf">5.86</span> <span class="o">-</span> <span class="mf">0.0025</span> <span class="o">*</span> <span class="n">speed</span>
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>    <span class="k">if</span> <span class="n">speed</span> <span class="o">&lt;=</span> <span class="mi">2290</span><span class="p">:</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>        <span class="k">return</span> <span class="mf">7.039</span> <span class="o">-</span> <span class="mf">0.00303</span> <span class="o">*</span> <span class="n">speed</span>
+<a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>
+<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>    <span class="k">if</span> <span class="n">speed</span> <span class="o">&lt;=</span> <span class="mi">2300</span><span class="p">:</span>
+<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a>        <span class="k">return</span> <span class="mi">23</span> <span class="o">-</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">speed</span>
+<a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a>
+<a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a>    <span class="k">return</span> <span class="mi">0</span>
+</code></pre></div>
 
 
 

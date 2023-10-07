@@ -1093,42 +1093,42 @@
 <p>Believe it or not, throttle still has an effect on your car even while airborne. Forward throttle while airborne exerts a force of <code>66.667 uu/s^2</code> in your car's relative forward direction. Reverse throttle's effect is halved with a force of <code>33.334 uu/s^2</code> in the relative rear direction.</p>
 <h2 id="implementing-a-jump-simulation">Implementing A Jump Simulation</h2>
 <p>The following code snippet provides an implementation of a jump simulation naively assuming the bot is perfectly flat on the ground with no initial velocity, gravity is at default settings and the bot executes a frame-perfect jump sequence.</p>
-<pre><code class="language-python">def naive_double_jump_simulation(time_allowed: float) -&gt; list:
-    gravity = -650
-    jump_impulse = 292
-    time_increment = 1 / 120
-    sticky_force = -325
-    sticky_timer = time_increment * 3
-    hold_bonus_increment = (292 * 5) * time_increment
-    max_hold_time = 0.2
-    simulated_z_velocity = 0
-    simulated_height = 17.01  # default sitting height of octane
-    simulation_time = 0
-    double_jumped = False
-    jump_slices = []
-
-    while simulation_time &lt; time_allowed:
-        if simulation_time == 0:
-            simulated_z_velocity += jump_impulse
-
-        elif simulation_time &gt; max_hold_time + time_increment and not double_jumped:
-            simulated_z_velocity += jump_impulse
-            double_jumped = True
-
-        if simulation_time &lt; max_hold_time:
-            simulated_z_velocity += hold_bonus_increment
-
-        if simulation_time &lt; sticky_timer:
-            simulated_z_velocity += sticky_force * time_increment
-
-        simulated_z_velocity += gravity * time_increment
-        simulated_height += simulated_z_velocity * time_increment
-        simulation_time += time_increment
-        jump_slices.append(simulated_height)
-
-    return jump_slices
-</code></pre>
-<p><img alt="The output of naive_double_jump_simulation(2) graphed" src="../img/jumping-physics/jump-graph.png" /></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">naive_double_jump_simulation</span><span class="p">(</span><span class="n">time_allowed</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">gravity</span> <span class="o">=</span> <span class="o">-</span><span class="mi">650</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">jump_impulse</span> <span class="o">=</span> <span class="mi">292</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">time_increment</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">120</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">sticky_force</span> <span class="o">=</span> <span class="o">-</span><span class="mi">325</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">sticky_timer</span> <span class="o">=</span> <span class="n">time_increment</span> <span class="o">*</span> <span class="mi">3</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="n">hold_bonus_increment</span> <span class="o">=</span> <span class="p">(</span><span class="mi">292</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="n">time_increment</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="n">max_hold_time</span> <span class="o">=</span> <span class="mf">0.2</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">simulated_z_velocity</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">simulated_height</span> <span class="o">=</span> <span class="mf">17.01</span>  <span class="c1"># default sitting height of octane</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">simulation_time</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">double_jumped</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">jump_slices</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="k">while</span> <span class="n">simulation_time</span> <span class="o">&lt;</span> <span class="n">time_allowed</span><span class="p">:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        <span class="k">if</span> <span class="n">simulation_time</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>            <span class="n">simulated_z_velocity</span> <span class="o">+=</span> <span class="n">jump_impulse</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        <span class="k">elif</span> <span class="n">simulation_time</span> <span class="o">&gt;</span> <span class="n">max_hold_time</span> <span class="o">+</span> <span class="n">time_increment</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">double_jumped</span><span class="p">:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>            <span class="n">simulated_z_velocity</span> <span class="o">+=</span> <span class="n">jump_impulse</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>            <span class="n">double_jumped</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        <span class="k">if</span> <span class="n">simulation_time</span> <span class="o">&lt;</span> <span class="n">max_hold_time</span><span class="p">:</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>            <span class="n">simulated_z_velocity</span> <span class="o">+=</span> <span class="n">hold_bonus_increment</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        <span class="k">if</span> <span class="n">simulation_time</span> <span class="o">&lt;</span> <span class="n">sticky_timer</span><span class="p">:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>            <span class="n">simulated_z_velocity</span> <span class="o">+=</span> <span class="n">sticky_force</span> <span class="o">*</span> <span class="n">time_increment</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>        <span class="n">simulated_z_velocity</span> <span class="o">+=</span> <span class="n">gravity</span> <span class="o">*</span> <span class="n">time_increment</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>        <span class="n">simulated_height</span> <span class="o">+=</span> <span class="n">simulated_z_velocity</span> <span class="o">*</span> <span class="n">time_increment</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>        <span class="n">simulation_time</span> <span class="o">+=</span> <span class="n">time_increment</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>        <span class="n">jump_slices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">simulated_height</span><span class="p">)</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    <span class="k">return</span> <span class="n">jump_slices</span>
+</code></pre></div>
+<img alt="The output of naive_double_jump_simulation(2) graphed" src="../img/jumping-physics/jump-graph.png" /></p>
 <p>Calling naive_doublejump_simulation(2.0) will return a list showing the simulated height of the car at every increment from 0 to 2 seconds into the future. A more robust solution should account for more variability in circumstances such as the car's current relative up direction as well as current velocity. </p>
 <h3 id="useful-considerations-for-implementing-jumping-simulations-and-mechanics">Useful Considerations For Implementing Jumping Simulations And Mechanics</h3>
 <ul>

@@ -1016,24 +1016,24 @@
 <h3 id="updating-an-existing-bot">Updating an existing bot</h3>
 <p>It's very common for people's forked repository to get out of sync with the central RLBot/RLBotPack, and then when you make a pull request there's a bit of a mess. Here's a strategy for avoiding that:</p>
 <ol>
-<li>Make sure you have latest information from the central repo</li>
-</ol>
-<pre><code>git remote add rlbot-origin https://github.com/RLBot/RLBotPack.git
-git fetch rlbot-origin
-</code></pre>
-<ol>
-<li>Pick a branch name for your change, e.g. my-new-change</li>
-</ol>
-<pre><code>git checkout -b my-new-change rlbot-origin/master
-</code></pre>
-<ol>
-<li>Make your changes, e.g. you may be copying / overwriting files in your bot folder.</li>
+<li>Make sure you have latest information from the central repo
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git remote add rlbot-origin https://github.com/RLBot/RLBotPack.git
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git fetch rlbot-origin
+</code></pre></div></li>
+<li>
+<p>Pick a branch name for your change, e.g. my-new-change
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git checkout -b my-new-change rlbot-origin/master
+</code></pre></div></p>
+</li>
+<li>
+<p>Make your changes, e.g. you may be copying / overwriting files in your bot folder.</p>
+</li>
 <li>Make a commit and push it to your forked repo.</li>
 </ol>
-<pre><code>git add .
-git commit -m &quot;My new change.&quot;
-git push origin my-new-change
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git add .
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git commit -m &quot;My new change.&quot;
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git push origin my-new-change
+</code></pre></div>
 <ol>
 <li>Visit your forked repo on github.com and create a pull request from the new branch.</li>
 </ol>

@@ -996,14 +996,14 @@
   <h1>Console commands</h1>
 
 <h2 id="sending-a-console-command">Sending a Console Command</h2>
-<p>To send a console command from a python bot, e.g. <code>Stat FPS</code>, you would do this:</p>
-<pre><code class="language-python">from rlbot.utils.game_state_util import GameState
-
-# other code ...
-
-game_state = GameState(console_commands=[&quot;Stat FPS&quot;])
-self.set_game_state(game_state)
-</code></pre>
+<p>To send a console command from a python bot, e.g. <code>Stat FPS</code>, you would do this:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">rlbot.utils.game_state_util</span> <span class="kn">import</span> <span class="n">GameState</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># other code ...</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">game_state</span> <span class="o">=</span> <span class="n">GameState</span><span class="p">(</span><span class="n">console_commands</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Stat FPS&quot;</span><span class="p">])</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="bp">self</span><span class="o">.</span><span class="n">set_game_state</span><span class="p">(</span><span class="n">game_state</span><span class="p">)</span>
+</code></pre></div></p>
 <p>Other languages are not supported yet.</p>
 <h2 id="known-console-commands">Known Console Commands</h2>
 <p>All of these are confirmed to work as intended. Please add more as you find them!

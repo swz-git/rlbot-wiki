@@ -1091,44 +1091,44 @@ You can also click the bottom left buttons to preview your loadout in-game insta
 <p><strong>Tip:</strong> When previewing in-game and trying multiple loadouts, sometimes the camera will lose track of your car when it respawns. You can avoid this by cycling the camera with your mouse buttons <em>instead</em> of using the number keys. With this technique it should be possible to get into a camera mode like hard-attach and have it be stable as you look at different wheels, blue car vs orange car, etc.</p>
 <h2 id="manual-customization">Manual Customization</h2>
 <p>In your bot's config file you can set your bot's display name. You can have a name of max 31 characters. If your name is too long or there is duplicates that is handled in the framework.</p>
-<p>Example (<code>bot.cfg</code> file):</p>
-<pre><code>[Locations]
-# Path to loadout config. Can use relative path from here.
-looks_config = ./appearance.cfg
-
-# Path to python file. Can use relative path from here.
-python_file = ./python_example.py
-
-# Path to a file that can dynamically generate your bot's appearance. Optional.
-loadout_generator = example_loadout_generator.py
-
-# Name of the bot in-game
-name = PythonExampleBot
-
-# Optional: Location of a logo file to to show in RLBotGUI and tournament overlays. 400x300px preferred.
-logo_file = ./logo.png
-</code></pre>
+<p>Example (<code>bot.cfg</code> file):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[Locations]
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a># Path to loadout config. Can use relative path from here.
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>looks_config = ./appearance.cfg
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a># Path to python file. Can use relative path from here.
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>python_file = ./python_example.py
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a># Path to a file that can dynamically generate your bot&#39;s appearance. Optional.
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>loadout_generator = example_loadout_generator.py
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a># Name of the bot in-game
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>name = PythonExampleBot
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a># Optional: Location of a logo file to to show in RLBotGUI and tournament overlays. 400x300px preferred.
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>logo_file = ./logo.png
+</code></pre></div></p>
 <p>The field <code>looks_config</code> should point to an appearance file. An <code>appearance.cfg</code> file could look like this:</p>
-<pre><code>[Bot Loadout]
-team_color_id = 27
-custom_color_id = 75
-car_id = 23
-decal_id = 307
-wheels_id = 1656
-boost_id = 0
-antenna_id = 287
-hat_id = 0
-paint_finish_id = 1978
-custom_finish_id = 1978
-engine_audio_id = 0
-trails_id = 0
-goal_explosion_id = 1971
-primary_color_lookup = [50, 0, 200]
-secondary_color_lookup = [100, 100, 250]
-
-[Bot Loadout Orange]
-# Same as above, except it applies to the orange car
-</code></pre>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[Bot Loadout]
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>team_color_id = 27
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>custom_color_id = 75
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>car_id = 23
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>decal_id = 307
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>wheels_id = 1656
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>boost_id = 0
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>antenna_id = 287
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>hat_id = 0
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>paint_finish_id = 1978
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>custom_finish_id = 1978
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>engine_audio_id = 0
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>trails_id = 0
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>goal_explosion_id = 1971
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>primary_color_lookup = [50, 0, 200]
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>secondary_color_lookup = [100, 100, 250]
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>[Bot Loadout Orange]
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a># Same as above, except it applies to the orange car
+</code></pre></div>
 <h3 id="item-ids">Item IDs</h3>
 <p>The GUI appearance editor uses a csv file generated by BakkesMod using the <code>dumpitems</code> command. You can see the most recently generated file here: https://github.com/RLBot/RLBotGUI/blob/master/rlbot_gui/gui/csv/items.csv</p>
 <p>To see the items, you might want to browse at: https://rocket-league.com/items/</p>
@@ -1159,48 +1159,48 @@ secondary_color_lookup = [100, 100, 250]
 - 11 - Grey
 - 12 - Titanium White
 - 13 - Saffron</p>
-<p>These are set in your appearance cfg file. Example:</p>
-<pre><code>[Bot Paint Blue]
-car_paint_id = 12
-decal_paint_id = 0
-wheels_paint_id = 7 
-boost_paint_id = 7
-antenna_paint_id = 0
-hat_paint_id = 0
-trails_paint_id = 2
-goal_explosion_paint_id = 0
-
-[Bot Paint Orange]
-...
-</code></pre>
+<p>These are set in your appearance cfg file. Example:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>[Bot Paint Blue]
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>car_paint_id = 12
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>decal_paint_id = 0
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>wheels_paint_id = 7 
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>boost_paint_id = 7
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>antenna_paint_id = 0
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>hat_paint_id = 0
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>trails_paint_id = 2
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>goal_explosion_paint_id = 0
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>[Bot Paint Orange]
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>...
+</code></pre></div></p>
 <h3 id="loadout-generator">Loadout Generator</h3>
 <p><strong>This is completely optional!</strong></p>
 <p>Recently we added the ability to generate your bot's loadout with a python script. This lets you choose different loadouts based on player index, randomize parts of your loadout, etc. The script is executed at the beginning of every match.</p>
-<p>To use this feature, put a line like <code>loadout_generator = loadout_generator_example.py</code> in your bot cfg file, in the [Locations] section. Then create a python file like this:</p>
-<pre><code class="language-python">import random
-from pathlib import Path
-
-from rlbot.agents.base_loadout_generator import BaseLoadoutGenerator
-from rlbot.matchconfig.loadout_config import LoadoutConfig
-
-
-class SampleLoadoutGenerator(BaseLoadoutGenerator):
-    def generate_loadout(self, player_index: int, team: int) -&gt; LoadoutConfig:
-
-        # You could start with a loadout based on a cfg file in the same directory as this generator
-        loadout = self.load_cfg_file(Path('appearance.cfg'), team)
-
-        # Or you could start from scratch like this
-        # loadout = LoadoutConfig()
-
-        if player_index == 0:
-            loadout.antenna_id = 287  # use a Psyonix flag if you're the first player
-
-        loadout.team_color_id = player_index  # Different primary color depending on player index
-        loadout.paint_config.wheels_paint_id = random.choice([1, 2, 4, 5])  # Random wheel color
-
-        return loadout
-</code></pre>
+<p>To use this feature, put a line like <code>loadout_generator = loadout_generator_example.py</code> in your bot cfg file, in the [Locations] section. Then create a python file like this:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">random</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="kn">from</span> <span class="nn">rlbot.agents.base_loadout_generator</span> <span class="kn">import</span> <span class="n">BaseLoadoutGenerator</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kn">from</span> <span class="nn">rlbot.matchconfig.loadout_config</span> <span class="kn">import</span> <span class="n">LoadoutConfig</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">class</span> <span class="nc">SampleLoadoutGenerator</span><span class="p">(</span><span class="n">BaseLoadoutGenerator</span><span class="p">):</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="k">def</span> <span class="nf">generate_loadout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">player_index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">team</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">LoadoutConfig</span><span class="p">:</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>        <span class="c1"># You could start with a loadout based on a cfg file in the same directory as this generator</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>        <span class="n">loadout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_cfg_file</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;appearance.cfg&#39;</span><span class="p">),</span> <span class="n">team</span><span class="p">)</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="c1"># Or you could start from scratch like this</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="c1"># loadout = LoadoutConfig()</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>        <span class="k">if</span> <span class="n">player_index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>            <span class="n">loadout</span><span class="o">.</span><span class="n">antenna_id</span> <span class="o">=</span> <span class="mi">287</span>  <span class="c1"># use a Psyonix flag if you&#39;re the first player</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="n">loadout</span><span class="o">.</span><span class="n">team_color_id</span> <span class="o">=</span> <span class="n">player_index</span>  <span class="c1"># Different primary color depending on player index</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>        <span class="n">loadout</span><span class="o">.</span><span class="n">paint_config</span><span class="o">.</span><span class="n">wheels_paint_id</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>  <span class="c1"># Random wheel color</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>        <span class="k">return</span> <span class="n">loadout</span>
+</code></pre></div></p>
 <h3 id="bot-logos">Bot Logos</h3>
 <p>Either put a file called logo.png in the same folder as your bot cfg, OR specify logo_file = ... in your bot cfg in the same section as python_file. Dimensions of 400x300 px are preferred. It will appear in RLBotGUI, and maybe on stream!</p>
 <h2 id="need-inspiration">Need inspiration?</h2>
