@@ -1266,24 +1266,34 @@
 <h1 id="installation-errors">Installation errors</h1>
 <h3 id="you-are-using-a-third-party-antivirus">You are using a third-party antivirus</h3>
 <p>RLBotGUI may open for a second before closing, it may install but fail to work, or produce other weird behavior.
-A list of known antivirus-related error messages is listed down below under Miscellaneous Issues
-1. Check out our other wiki page: <a href="/troubleshooting/antivirus-notes">Antivirus Notes</a></p>
+A list of known antivirus-related error messages is listed down below under Miscellaneous Issues</p>
+<ol>
+<li>Check out our other wiki page: <a href="/troubleshooting/antivirus-notes">Antivirus Notes</a></li>
+</ol>
 <h3 id="rlbotgui-gets-stuck-updatingcollecting-packages-during-installation">RLBotGUI gets stuck updating/collecting packages during installation</h3>
-<p>This usually happens because of:
-1. slow internet (try giving it 5 minutes)
-2. pip (python's package installer) broke</p>
-<p>If you've given it time and nothing's happened:
-1. Restart your computer and try again
-2. If that doesn't work, delete pip's cache folder located in <code>%localappdata%/pip</code> and try again</p>
+<p>This usually happens because of:</p>
+<ol>
+<li>slow internet (try giving it 5 minutes)</li>
+<li>pip (python's package installer) broke</li>
+</ol>
+<p>If you've given it time and nothing's happened:</p>
+<ol>
+<li>Restart your computer and try again</li>
+<li>If that doesn't work, delete pip's cache folder located in <code>%localappdata%/pip</code> and try again</li>
+</ol>
 <h1 id="problems-starting-a-match">Problems starting a match</h1>
 <p>Check the console window for any error messages.</p>
 <h3 id="encountered-a-std-exception-listen">Encountered a std Exception: listen</h3>
-<p>Another program is preventing RLBot from talking to Rocket League.
-1. Restart your computer</p>
+<p>Another program is preventing RLBot from talking to Rocket League.</p>
+<ol>
+<li>Restart your computer</li>
+</ol>
 <h3 id="encountered-a-std-exception-unknown-error">Encountered a std Exception: Unknown Error</h3>
-<p>A Bakkesmod plugin that you are using isn't compatible with RLBot.
-1. Disable Bakkesmod
-2. Restart Rocket League and RLBotGUI</p>
+<p>A Bakkesmod plugin that you are using isn't compatible with RLBot.</p>
+<ol>
+<li>Disable Bakkesmod</li>
+<li>Restart Rocket League and RLBotGUI</li>
+</ol>
 <h3 id="the-game-is-open-but-no-match-started">The game is open but no match started</h3>
 <ol>
 <li>Ensure you started with Rocket League closed. RLBotGUI has to launch it for you</li>
@@ -1295,8 +1305,10 @@ A list of known antivirus-related error messages is listed down below under Misc
 <li>Ensure you set RLBotGUI to launch from the correct (Steam/Epic) platform.</li>
 </ol>
 <h3 id="javalangruntimeexception-javaniocharsetmalformedinputexception-input-length-1">java.lang.RuntimeException: java.nio.charset.MalformedInputException: Input length = 1</h3>
-<p>This currently happens to people with strange letters/characters in their Steam username.
-1. Change your steam username</p>
+<p>This currently happens to people with strange letters/characters in their Steam username.</p>
+<ol>
+<li>Change your steam username</li>
+</ol>
 <h1 id="miscellaneous-issues">Miscellaneous Issues</h1>
 <h3 id="common-antivirus-related-error-messages">Common Antivirus-related error messages</h3>
 <ul>
@@ -1306,8 +1318,10 @@ A list of known antivirus-related error messages is listed down below under Misc
 <li><code>Encountered exception:  [WinError 5] Access is denied</code></li>
 <li><code>[WinError 225] Operation did not complete successfully because the file contains a virus or potentially unwanted software</code></li>
 </ul>
-<p>For all of the above:
-1. Check out our other wiki page for this issue: <a href="/troubleshooting/antivirus-notes">Antivirus Notes</a></p>
+<p>For all of the above:</p>
+<ol>
+<li>Check out our other wiki page for this issue: <a href="/troubleshooting/antivirus-notes">Antivirus Notes</a></li>
+</ol>
 <h3 id="cannot-proceed-because-vcruntime140dll-was-not-found">Cannot proceed because VCRUNTIME140.dll was not found</h3>
 <p>Your computer may be missing some important files, which you can download from here:</p>
 <ul>
@@ -1325,7 +1339,7 @@ A list of known antivirus-related error messages is listed down below under Misc
 </ol>
 <h1 id="bot-development-issues">Bot development Issues</h1>
 <h3 id="python-acting-super-weird">Python Acting Super Weird</h3>
-<p>Sometimes on Windows 10, <code>~\AppData\Local\Microsoft\WindowsApps</code> will end up on your system path, which supplies a fake python.exe taking you to the Microsoft Store. This causes bizarre things to happen, e.g. nothing at all being printed when you run <code>python --version</code>. </p>
+<p>Sometimes on Windows 10, <code>~\AppData\Local\Microsoft\WindowsApps</code> will end up on your system path, which supplies a fake python.exe taking you to the Microsoft Store. This causes bizarre things to happen, e.g. nothing at all being printed when you run <code>python --version</code>.</p>
 <p>You can confirm whether this is happening to you by opening a command prompt and running <code>where.exe</code> like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&gt;where.exe python
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>C:\Users\tareh\AppData\Local\Microsoft\WindowsApps\python.exe
@@ -1336,13 +1350,17 @@ A list of known antivirus-related error messages is listed down below under Misc
 <li>Run your .bat files as administrator to get past this error.</li>
 </ol>
 <h3 id="could-not-locate-a-suitable-bot-class-in-module">Could not locate a suitable bot class in module</h3>
-<p>This means that your bot's python file was found, but there's something messed up in it.
-1. Ensure you saved the file
-2. Check to make sure your bot extends the framework's agent class</p>
+<p>This means that your bot's python file was found, but there's something messed up in it.</p>
+<ol>
+<li>Ensure you saved the file</li>
+<li>Check to make sure your bot extends the framework's agent class</li>
+</ol>
 <h3 id="could-not-find-a-version-that-satisfies-the-requirement-pyqt5">Could not find a version that satisfies the requirement PyQt5</h3>
-<p>Your system might be using python 2 instead of python 3. This can happen even if you successfully installed python 3 and added it to your path. Verify whether this is the case by running <code>python --version</code>. If it says python 2, try these:
-1. Make sure you've installed python 3 and chosen "Add to PATH" during the installation.
-1. Open the windows "environment variables" dialog and make sure that python 3 is listed <em>before</em> python 2.</p>
+<p>Your system might be using python 2 instead of python 3. This can happen even if you successfully installed python 3 and added it to your path. Verify whether this is the case by running <code>python --version</code>. If it says python 2, try these:</p>
+<ol>
+<li>Make sure you've installed python 3 and chosen "Add to PATH" during the installation.</li>
+<li>Open the windows "environment variables" dialog and make sure that python 3 is listed <em>before</em> python 2.</li>
+</ol>
 <h3 id="scratch-the-project-file-that-was-selected-failed-to-load">Scratch: The project file that was selected failed to load.</h3>
 <p>We're using Scratch 3.0 which is pre-release and a bit buggy. Sometimes the save gets corrupted. Here's how to avoid that, and recover your file if it does get corrupted:</p>
 <ul>
@@ -1351,28 +1369,34 @@ A list of known antivirus-related error messages is listed down below under Misc
 </ul>
 <p>General strategy for recovering the file:</p>
 <ol>
-<li>Hit F12 in your browser to view the javascript console and read the error that appears when you try to upload the broken file. It will look something like this:
+<li>Hit F12 in your browser to view the javascript console and read the error that appears when you try to upload the broken file. It will look something like this:</li>
+</ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>gui {&quot;validationError&quot;:&quot;Could not parse as a valid SB2 or SB3 project.&quot;,&quot;sb2Errors&quot;:[{&quot;keyword&quot;:&quot;required&quot;,&quot;dataPath&quot;:&quot;&quot;,&quot;schemaPath&quot;:&quot;#/required&quot;,&quot;params&quot;:{&quot;missingProperty&quot;:&quot;objName&quot;},&quot;message&quot;:&quot;should have required property &#39;objName&#39;&quot;}],&quot;sb3Errors&quot;:[{&quot;keyword&quot;:&quot;type&quot;,&quot;dataPath&quot;:&quot;.targets[0].lists[&#39;g*`|xWn5EppiH.9NKPVF&#39;][1][0]&quot;,&quot;schemaPath&quot;:&quot;#/definitions/stringOrNumber/oneOf/0/type&quot;,&quot;params&quot;:{&quot;type&quot;:&quot;string&quot;},&quot;message&quot;:&quot;should be string&quot;},{&quot;keyword&quot;:&quot;type&quot;,&quot;dataPath&quot;:&quot;.targets[0].lists[&#39;g*`|xWn5EppiH.9NKPVF&#39;][1][0]&quot;,&quot;schemaPath&quot;:&quot;#/definitions/stringOrNumber/oneOf/1/type&quot;,&quot;params&quot;:{&quot;type&quot;:&quot;number&quot;},&quot;message&quot;:&quot;should be number&quot;},{&quot;keyword&quot;:&quot;oneOf&quot;,&quot;dataPath&quot;:&quot;.targets[0].lists[&#39;g*`|xWn5EppiH.9NKPVF&#39;][1][0]&quot;,&quot;schemaPath&quot;:&quot;#/definitions/stringOrNumber/oneOf&quot;,&quot;params&quot;:{&quot;passingSchemas&quot;:null},&quot;message&quot;:&quot;should match exactly one schema in oneOf&quot;},{&quot;keyword&quot;:&quot;type&quot;,&quot;dataPath&quot;:&quot;.targets[0].lists[&#39;g*`|xWn5EppiH.9NKPVF&#39;][1][0]&quot;,&quot;schemaPath&quot;:&quot;#/oneOf/1/type&quot;,&quot;params&quot;:{&quot;type&quot;:&quot;boolean&quot;},&quot;message&quot;:&quot;should be boolean&quot;},{&quot;keyword&quot;:&quot;oneOf&quot;,&quot;dataPath&quot;:&quot;.targets[0].lists[&#39;g*`|xWn5EppiH.9NKPVF&#39;][1][0]&quot;,&quot;schemaPath&quot;:&quot;#/oneOf&quot;,&quot;params&quot;:{&quot;passingSchemas&quot;:null},&quot;message&quot;:&quot;should match exactly one schema in oneOf&quot;}]}
-</code></pre></div></li>
-<li>Your sb3 is really a zip file, so unzip it and look inside project.json. </li>
-<li>Search for xWn5EppiH.9NKPVF and see if there's anything funky saved in it, and manually make a fix. For a list, you could delete the list items. For a variable, you could set it to "". </li>
+</code></pre></div>
+<ol>
+<li>Your sb3 is really a zip file, so unzip it and look inside project.json.</li>
+<li>Search for xWn5EppiH.9NKPVF and see if there's anything funky saved in it, and manually make a fix. For a list, you could delete the list items. For a variable, you could set it to "".</li>
 <li>Then put the fixed version of project.json back in the zip and try uploading again.</li>
 </ol>
 <h3 id="import-errors">Import errors:</h3>
 <p>If you run into an import error that works fine when testing outside of rlbot but crashes when loading your agent, it can most often be solved by simply moving the import statement to your agent's init method. This is helpful for libraries such as tensorflow and rlutilities</p>
 <h1 id="old-issues-that-are-probably-irrelevant">Old issues that are probably irrelevant</h1>
 <h3 id="pip-is-not-recognized-as-an-internal-or-external-command">'pip 'is not recognized as an internal or external command</h3>
-<p>Something blocked RLBotGUI from installing Python on the first try, and you have to reinstall by following these steps:
-1. Press <code>Windows + R</code>, and type in <code>%localappdata%\RLBotGUIX</code> and then press Enter
-2. Delete the folders <code>Python37</code> and <code>venv</code>
-3. Relaunch RLBotGUI.exe</p>
+<p>Something blocked RLBotGUI from installing Python on the first try, and you have to reinstall by following these steps:</p>
+<ol>
+<li>Press <code>Windows + R</code>, and type in <code>%localappdata%\RLBotGUIX</code> and then press Enter</li>
+<li>Delete the folders <code>Python37</code> and <code>venv</code></li>
+<li>Relaunch RLBotGUI.exe</li>
+</ol>
 <h3 id="the-term-expand-archive-is-not-recognized-as-the-name-of-a-cmdlet">The term 'Expand-Archive' is not recognized as the name of a cmdlet</h3>
-<p>You are using an older version of Windows and must manually perform some of the installation with the following steps:
-1. Download our copy of Python from <a href="https://github.com/RLBot/RLBotGUI/blob/master/alternative-install/python-3.7.9-custom-amd64.zip">here</a>
-3. Press <code>Windows + R</code>, type in <code>%localappdata%\RLBotGUIX</code> and then press Enter
-4. Create a new folder called <code>Python37</code> and open the folder
-5. Find the zip file of Python you downloaded and double click it
-6. Drag the contents from the zip file into the folder Python37</p>
+<p>You are using an older version of Windows and must manually perform some of the installation with the following steps:</p>
+<ol>
+<li>Download our copy of Python from <a href="https://github.com/RLBot/RLBotGUI/blob/master/alternative-install/python-3.7.9-custom-amd64.zip">here</a></li>
+<li>Press <code>Windows + R</code>, type in <code>%localappdata%\RLBotGUIX</code> and then press Enter</li>
+<li>Create a new folder called <code>Python37</code> and open the folder</li>
+<li>Find the zip file of Python you downloaded and double click it</li>
+<li>Drag the contents from the zip file into the folder Python37</li>
+</ol>
 
 
 

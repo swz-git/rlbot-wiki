@@ -648,7 +648,7 @@
         
           <li class="md-nav__item">
   <a href="#net-c" class="md-nav__link">
-    .NET / C
+    .NET / C#
   </a>
   
 </li>
@@ -1281,7 +1281,7 @@
         
           <li class="md-nav__item">
   <a href="#net-c" class="md-nav__link">
-    .NET / C
+    .NET / C#
   </a>
   
 </li>
@@ -1316,10 +1316,12 @@
   <h1>Tick rate</h1>
 
 <p>Bots have a function like <code>get_output(packet)</code> or something similar, depending on language. This gets called some number of times per second, I will refer to this as the tick rate.</p>
-<p>There are several factors which influence tick rate:
-1. The frame rate of Rocket League. If Rocket League is running at 60 FPS, the tick rate will get capped at 60, regardless of any other settings. Note that enabled VSync also limits FPS.
-2. The desired tick rate that you've configured for your bot. Most languages allow you to add an additional cap.
-3. The tick rate can never be higher than 120, since this is the rate at which Rocket League simulates its physics.</p>
+<p>There are several factors which influence tick rate:</p>
+<ol>
+<li>The frame rate of Rocket League. If Rocket League is running at 60 FPS, the tick rate will get capped at 60, regardless of any other settings. Note that enabled VSync also limits FPS.</li>
+<li>The desired tick rate that you've configured for your bot. Most languages allow you to add an additional cap.</li>
+<li>The tick rate can never be higher than 120, since this is the rate at which Rocket League simulates its physics.</li>
+</ol>
 <p>In other words, the tick rate is <code>min(rocketLeagueFPS, desiredTickRate)</code>. You can see the tick rate you're getting during a game by hitting the 'home' key and looking for a line like <code>ticks: 120.0 tps</code></p>
 <p>There used to be another factor, the PacketSendRate configuration. There's a file at <code>C:\Users\yourname\Documents\My Games\Rocket League\TAGame\Config\TARLBot.ini</code> where you could write down a PacketSendRate, but RLBot now ignores it and sets 240 no matter what, so it's a non-issue.</p>
 <h2 id="specifying-desired-tick-rate">Specifying desired tick rate</h2>
@@ -1329,7 +1331,7 @@
 <h3 id="java">Java</h3>
 <p>In Java, you can configure your bot manager as seen in <a href="https://github.com/RLBot/RLBot/blob/652b8c3fd94b347fdc04daeb3e2c90702be30073/src/test/java/rlbot/JavaExample.java#L20">this example</a></p>
 <p>Java will assume your desired tick rate is 60 unless you override it. This is for the same reason as Python, and also because Java was hard-coded to use 60 for a long time.</p>
-<h3 id="net-c">.NET / C</h3>
+<h3 id="net-c">.NET / C#</h3>
 <p>In .NET, you can configure your bot manager as seen in <a href="https://github.com/RLBot/RLBot/blob/652b8c3fd94b347fdc04daeb3e2c90702be30073/src/test/cs/TestBot/Program.cs#L16">this example</a></p>
 <p>Here, 0 means that you wish to have your desired tick rate be unlimited. You may also pass numbers like 60 or 120.</p>
 <h2 id="tips">Tips</h2>

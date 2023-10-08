@@ -1580,24 +1580,28 @@
 <p>Also encourage them to do <a href="https://github.com/RLBot/RLBotJavaExample/wiki/Auto-Launching-Java">this</a>, it'll make your life much easier</p>
 <h3 id="scratch-bot-requirements">Scratch Bot Requirements</h3>
 <p>People who program their bots in Scratch should submit their whole folder.</p>
-<p>Scratch program (sb3) requirements
-- All the tournament code should be in the player 1 sprite.
-- Clicking the green flag should be the only thing necessary to start your program.</p>
-<p>CFG file requirements
+<p>Scratch program (sb3) requirements</p>
+<ul>
+<li>All the tournament code should be in the player 1 sprite.</li>
+<li>Clicking the green flag should be the only thing necessary to start your program.</li>
+</ul>
+<p>CFG file requirements</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>headless = True
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>separate_browsers = True
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pretend_blue_team = True
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="deadline-management">Deadline Management</h2>
 <p>It's a good idea to set a bot submission deadline at least 24 hours before the start of the tournament stream. This will give you an opportunity to test all the bots.</p>
 <p>Encourage early submissions so you can get a head-start on testing, and allow people edit their submission up until the deadline. If you feel confident from your pre-deadline testing that you'll be able to run most of the bots with no issues, consider giving an extension on the deadline--many people will need one.</p>
 <h2 id="pre-tournament-bot-testing">Pre-Tournament Bot Testing</h2>
-<p>You should test all the bots beforehand.
-- Do they start successfully?
-- Do they have any obvious behavior problems that might be a problem with your setup?
-  - Feel free to check with the bot maker about the expected behavior.
-- Do they run properly on <em>both</em> blue and orange team? Consider running test matches of each bot vs itself.
-- Are the C#/Java bots running on different ports? Each C# and Java bot must run on a separate port from the rest of the bots.</p>
+<p>You should test all the bots beforehand.</p>
+<ul>
+<li>Do they start successfully?</li>
+<li>Do they have any obvious behavior problems that might be a problem with your setup?</li>
+<li>Feel free to check with the bot maker about the expected behavior.</li>
+<li>Do they run properly on <em>both</em> blue and orange team? Consider running test matches of each bot vs itself.</li>
+<li>Are the C#/Java bots running on different ports? Each C# and Java bot must run on a separate port from the rest of the bots.</li>
+</ul>
 <h2 id="running-bots">Running Bots</h2>
 <h3 id="net-c-bots">.NET / C# Bots</h3>
 <ul>
@@ -1607,19 +1611,23 @@
 </ul>
 <h3 id="java-bots">Java Bots</h3>
 <p>Prerequisite: You will need to have the Java Runtime Environment (JRE) installed. You are likely to need the latest one (Java 11 at time of writing) in case any of the botmakers compiled with it.</p>
-<p>You hopefully received a zip file for each bot. Extract it somewhere and consult the README. 
-- In the ideal case, if they followed <a href="https://github.com/RLBot/RLBotJavaExample/wiki/Auto-Launching-Java">Auto Launching Java</a> successfully, you will only need to load the cfg file like you would for a Python bot.
-- Otherwise, you will need to locate the .bat file associated with the Java portion of their bot and run it manually. The RLBot framework output will hint about this.
-- Make sure the bot's port is different from the rest of the bots.</p>
+<p>You hopefully received a zip file for each bot. Extract it somewhere and consult the README.</p>
+<ul>
+<li>In the ideal case, if they followed <a href="https://github.com/RLBot/RLBotJavaExample/wiki/Auto-Launching-Java">Auto Launching Java</a> successfully, you will only need to load the cfg file like you would for a Python bot.</li>
+<li>Otherwise, you will need to locate the .bat file associated with the Java portion of their bot and run it manually. The RLBot framework output will hint about this.</li>
+<li>Make sure the bot's port is different from the rest of the bots.</li>
+</ul>
 <p>If you run into any trouble, consult <a href="https://www.youtube.com/watch?v=VHOkWVYlfa0">this video</a></p>
 <h3 id="scratch-bots">Scratch Bots</h3>
 <p>All recently-created Scratch bots should auto start with no issues, BUT often the process takes a while. Consider pausing the match until you see something like "received first input from scratch bot" in the console.</p>
 <p>If the bot is very old and does not auto run, they may need to do <a href="https://www.youtube.com/watch?v=4oK44syo49Y">this</a></p>
 <h2 id="streaming-and-casting">Streaming and Casting</h2>
 <h3 id="co-casters">Co-casters</h3>
-<p>If you want to invite others to do commentary with you, you'll need to:
-- Give them a real-time view of the action so they can comment on things as they happen.
-- Get the sound of their voice flowing through your system audio.</p>
+<p>If you want to invite others to do commentary with you, you'll need to:</p>
+<ul>
+<li>Give them a real-time view of the action so they can comment on things as they happen.</li>
+<li>Get the sound of their voice flowing through your system audio.</li>
+</ul>
 <p>A good way to do this is to start a Discord call and share your screen. If you have internet bandwidth or CPU constraints, make sure you share your screen at a low framerate and / or low resolution.</p>
 <h2 id="diagnostics">Diagnostics</h2>
 <h3 id="bot-response-rate">Bot Response Rate</h3>

@@ -1280,14 +1280,16 @@
 <h1 id="rlbot-pack">RLBot Pack</h1>
 <p>The RLBotPack is a repository holding frequently requested bots in one convenient place. The main intended users are people joining the discord looking for a fun bot to try out. It may also be useful as a way for people running streams to get an up-to-date version of your bot.</p>
 <p>To be a part of the pack, you just need to create a pull request with your bot to <a href="https://github.com/RLBot/RLBotPack">the repository</a>.</p>
-<p>To qualify:
- - Your bot must be capable of auto-run
-   - Use Python or Rust? You're all set.
-   - Other languages? We have a <a href="https://github.com/RLBot/RLBotJavaExample/wiki/Auto-Launching-Java">Java wiki</a>, a <a href="https://github.com/RLBot/RLBotCSharpExample/wiki/Auto-Launching">C# wiki</a> and a <a href="https://www.youtube.com/watch?v=4oK44syo49Y">Scratch video</a>.
-- Your bot must not have any crazy external requirements (except for very common ones like Java or Google Chrome)
-- You must be willing to trim out any extra bot configs from your folder that people wouldn't care about
-- Obey the <a href="/community-guidelines">guidelines</a>
-- <strong>If you join the bot pack, people will be free to play against you for rank in the <a href="https://braacket.com/league/rlbot">braacket league</a> whenever they want!</strong></p>
+<p>To qualify:</p>
+<ul>
+<li>Your bot must be capable of auto-run</li>
+<li>Use Python or Rust? You're all set.</li>
+<li>Other languages? We have a <a href="https://github.com/RLBot/RLBotJavaExample/wiki/Auto-Launching-Java">Java wiki</a>, a <a href="https://github.com/RLBot/RLBotCSharpExample/wiki/Auto-Launching">C# wiki</a> and a <a href="https://www.youtube.com/watch?v=4oK44syo49Y">Scratch video</a>.</li>
+<li>Your bot must not have any crazy external requirements (except for very common ones like Java or Google Chrome)</li>
+<li>You must be willing to trim out any extra bot configs from your folder that people wouldn't care about</li>
+<li>Obey the <a href="/community-guidelines">guidelines</a></li>
+<li><strong>If you join the bot pack, people will be free to play against you for rank in the <a href="https://braacket.com/league/rlbot">braacket league</a> whenever they want!</strong></li>
+</ul>
 <p>After you create the pull request, somebody will come along, review your bot and eventually merge it to the pack.</p>
 <h2 id="pull-request-tips">Pull Request Tips</h2>
 <ul>
@@ -1296,18 +1298,18 @@
 <h3 id="updating-an-existing-bot">Updating an existing bot</h3>
 <p>It's very common for people's forked repository to get out of sync with the central RLBot/RLBotPack, and then when you make a pull request there's a bit of a mess. Here's a strategy for avoiding that:</p>
 <ol>
-<li>Make sure you have latest information from the central repo
+<li>Make sure you have latest information from the central repo</li>
+</ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git remote add rlbot-origin https://github.com/RLBot/RLBotPack.git
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git fetch rlbot-origin
-</code></pre></div></li>
-<li>
-<p>Pick a branch name for your change, e.g. my-new-change
+</code></pre></div>
+<ol>
+<li>Pick a branch name for your change, e.g. my-new-change</li>
+</ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git checkout -b my-new-change rlbot-origin/master
-</code></pre></div></p>
-</li>
-<li>
-<p>Make your changes, e.g. you may be copying / overwriting files in your bot folder.</p>
-</li>
+</code></pre></div>
+<ol>
+<li>Make your changes, e.g. you may be copying / overwriting files in your bot folder.</li>
 <li>Make a commit and push it to your forked repo.</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git add .

@@ -1366,11 +1366,13 @@
 <p>For example, our left-most target vector could be <code>[800, 5213, 321.3875]</code> (orange's left goal post) and our right-most target vector could be <code>[-800, 5213, 321.3875]</code> (orange's right goal post). These values have been adjusted to account for the ball's radius (which is 92.75).</p>
 <h3 id="direction-of-approach">Direction of approach</h3>
 <p>Now we need to find the direction that we need to hit the ball in. It wouldn't be fun if we ended up hitting the ball away from our target!</p>
-<p>In order to do this, we need the following information:
-* Left-most target
-* Right-most target
-* Ball location
-* Car location</p>
+<p>In order to do this, we need the following information:</p>
+<ul>
+<li>Left-most target</li>
+<li>Right-most target</li>
+<li>Ball location</li>
+<li>Car location</li>
+</ul>
 <p>Let's get started!</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">Vector</span><span class="w"> </span><span class="n">car_to_ball</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ball_location</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">car_location</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">Vector</span><span class="w"> </span><span class="n">car_to_ball_direction</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">car_to_ball</span><span class="p">)</span>
@@ -1395,7 +1397,7 @@
 </code></pre></div>
 <p>You will also have to implement your own dotProduct and crossProduct functions. <a href="https://www.mathsisfun.com/algebra/vectors-dot-product.html">See here to learn how to find the dot product of two vectors</a> and <a href="https://www.mathsisfun.com/algebra/vectors-cross-product.html">see here to learn how to find the cross product of two vectors</a>. <em>Many example bots, including the ones for Python and Java, already have vector classes that have implemented this for you!</em></p>
 <ul>
-<li>Similar to integer clamping, clamp2D forces a direction between <code>start</code> and <code>end</code>, such that <code>start</code> &lt; <code>direction</code> &lt; <code>end</code> in terms of clockwise rotation.</li>
+<li>Similar to integer clamping, clamp2D forces a direction between <code>start</code> and <code>end</code>, such that <code>start</code> \&lt; <code>direction</code> \&lt; <code>end</code> in terms of clockwise rotation.</li>
 <li>Note that this is only in the x-axis and y-axis - clamping the z-axis isn't necessary for this problem.</li>
 <li>For the math nerds: Why does this work? This function relies on Rocket League's inverted X-axis (positive X is left and negative X is right). <a href="/useful-game-values#basic-dimensions">See this page</a> for a top-down view of the Rocket League field and different coordinates pertaining to the field.</li>
 </ul>

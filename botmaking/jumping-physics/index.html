@@ -1364,7 +1364,7 @@
 <h2 id="gravity">Gravity</h2>
 <p>Under normal circumstances, gravity functions much like you'd expect. It constantly applies a force downwards towards the floor. By default, the force is <code>650 uu/s^2</code> but that's not a given. Luckily the current gravity value is supplied within the GameTickPacket (<code>GameTickPacket.game_info.world_gravity_z</code>) passed to your bot's <code>get_output()</code> every frame.</p>
 <h2 id="sticky-force">Sticky Force</h2>
-<p>This force is responsible for the magnet-like effect pulling your wheels to walls and other surfaces. This force unlike gravity is applied in the relative down direction pushing the car's wheels towards a surface in the immediate vicinity with the force of <code>325 uu/s^2</code>. This effect only persists for a short time after jumping thankfully and is no longer a consideration after 3 frames in the air after a jump. This results in a force of <code>8.125</code> (<code>(1/120) * 3 * 325</code>) being negated from jumps. </p>
+<p>This force is responsible for the magnet-like effect pulling your wheels to walls and other surfaces. This force unlike gravity is applied in the relative down direction pushing the car's wheels towards a surface in the immediate vicinity with the force of <code>325 uu/s^2</code>. This effect only persists for a short time after jumping thankfully and is no longer a consideration after 3 frames in the air after a jump. This results in a force of <code>8.125</code> (<code>(1/120) * 3 * 325</code>) being negated from jumps.</p>
 <h2 id="jump-impulse">Jump Impulse</h2>
 <p>The instantaneous force applied in the relative up direction (towards your car's ceiling) of <code>292</code> when the jump button is first pressed. This force is the same for the first jump as well as the second jump without a flip.</p>
 <h3 id="jump-hold-bonus">Jump Hold Bonus</h3>
@@ -1373,7 +1373,7 @@
 <p>Believe it or not, throttle still has an effect on your car even while airborne. Forward throttle while airborne exerts a force of <code>66.667 uu/s^2</code> in your car's relative forward direction. Reverse throttle's effect is halved with a force of <code>33.334 uu/s^2</code> in the relative rear direction.</p>
 <h2 id="implementing-a-jump-simulation">Implementing A Jump Simulation</h2>
 <p>The following code snippet provides an implementation of a jump simulation naively assuming the bot is perfectly flat on the ground with no initial velocity, gravity is at default settings and the bot executes a frame-perfect jump sequence.</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">naive_double_jump_simulation</span><span class="p">(</span><span class="n">time_allowed</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">naive_double_jump_simulation</span><span class="p">(</span><span class="n">time_allowed</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">gravity</span> <span class="o">=</span> <span class="o">-</span><span class="mi">650</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">jump_impulse</span> <span class="o">=</span> <span class="mi">292</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">time_increment</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">120</span>
@@ -1408,14 +1408,14 @@
 <a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
 <a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    <span class="k">return</span> <span class="n">jump_slices</span>
 </code></pre></div>
-<img alt="The output of naive_double_jump_simulation(2) graphed" src="/img/jumping-physics/jump-graph.png" /></p>
-<p>Calling naive_doublejump_simulation(2.0) will return a list showing the simulated height of the car at every increment from 0 to 2 seconds into the future. A more robust solution should account for more variability in circumstances such as the car's current relative up direction as well as current velocity. </p>
+<p><img alt="The output of naive_double_jump_simulation(2) graphed" src="/img/jumping-physics/jump-graph.png" /></p>
+<p>Calling naive_doublejump_simulation(2.0) will return a list showing the simulated height of the car at every increment from 0 to 2 seconds into the future. A more robust solution should account for more variability in circumstances such as the car's current relative up direction as well as current velocity.</p>
 <h3 id="useful-considerations-for-implementing-jumping-simulations-and-mechanics">Useful Considerations For Implementing Jumping Simulations And Mechanics</h3>
 <ul>
 <li>The second jump remains viable for between 1.25 and 1.45 seconds with the potential 0.2s time extension provided by holding the first jump for the maximum bonus duration.</li>
 <li>The maximum speed of a car in Rocket League is <code>2300</code>. Any forces applied that would result in a magnitude exceeding <code>2300</code> will be applied as per usual but then normalized back down to the limit of <code>2300</code>.</li>
 </ul>
-<p>Note: Rocket League's physics engine runs at 120hz so all calculations provided are based on that number as the base of a time step (<code>1/120</code>). </p>
+<p>Note: Rocket League's physics engine runs at 120hz so all calculations provided are based on that number as the base of a time step (<code>1/120</code>).</p>
 
 
 

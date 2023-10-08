@@ -1330,7 +1330,7 @@
 <li>name: The name of your bot in-game.</li>
 <li>supports_early_start: Optional. Indicates whether your bot can handle the early start system. Read below for details.</li>
 <li>requirements_file: Optional. The location of a requirements.txt for your bot. If specified, RLBotGUI will use it to warn people if there's a missing dependency, and they'll have the option to install your requirements.txt file.</li>
-<li>use_virtual_environment: Optional, defaults to False. Installs your bot's requirements from the requirements.txt file into a python venv so they're isolated from potentially conflicting requirements from other bots. See <a href="https://github.com/RLBot/RLBot/pull/536">pr #535</a> </li>
+<li>use_virtual_environment: Optional, defaults to False. Installs your bot's requirements from the requirements.txt file into a python venv so they're isolated from potentially conflicting requirements from other bots. See <a href="https://github.com/RLBot/RLBot/pull/536">pr #535</a></li>
 <li>loadout_generator: Optional. Location of a script that can influence your bot's appearance on startup for randomization / index-dependent changes. See <a href="/bot-customization#loadout-generator">loadout generator</a></li>
 <li>requires_tkinter: Optional. Set it to true if your bot needs tkinter, and if the user is running a GUI which lacks tkinter, they will be warned.</li>
 </ul>
@@ -1423,7 +1423,7 @@
 <li>participant_bot_skill_NUMBER: 0.0 is Rookie, 0.5 is pro, 1.0 is all-star</li>
 <li>participant_loadout_config_NUMBER: the path to the loadout.   This overrides the agent config if not None</li>
 </ul>
-<p>Example contents:
+<p>Example contents:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>participant_config_0 = my_folder/my_bot.cfg
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>participant_config_1 = my_folder/other_bot.cfg
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -1435,16 +1435,16 @@
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>participant_bot_skill_0 = 1.0
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>participant_bot_skill_1 = 1.0
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="scripts">Scripts</h3>
 <p>This field is optional, by default no scripts will be ran.</p>
 <ul>
 <li>script_config_NUMBER: The path to the script configuration</li>
 </ul>
-<p>Example contents:
+<p>Example contents:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>script_config_0 = src/test/python/agents/script/sample_script.cfg
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>script_config_1 = src/test/python/agents/script/sample_script.cfg
-</code></pre></div></p>
+</code></pre></div>
 
 
 

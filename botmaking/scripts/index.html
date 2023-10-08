@@ -1195,7 +1195,7 @@
 <p>Sometimes it can be useful to have access to game values, debug rendering or state setting while not being a bot playing within the match. The framework has an easy solution for that - scripts.</p>
 <p>Scripts are very similiar to normal bots. They need a config file and a python executable. The config file can be loaded by RLBotGUI like a normal bot - to enable it, just click the checkbox next to its name. The script will be automatically started and terminated by the framework.</p>
 <p><img alt="Enabled script in RLBotGUI" src="/img/scripts/screenshot.png" /></p>
-<p>Example config:
+<p>Example config:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[Locations]
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>script_file = ./my_script.py
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>name = My Script
@@ -1203,8 +1203,8 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>[Details]
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>description = Example script
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>language = python
-</code></pre></div></p>
-<p>Example <code>my_script.py</code>:
+</code></pre></div>
+<p>Example <code>my_script.py</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span> <span class="nn">time</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span> <span class="nn">rlbot.agents.base_script</span> <span class="kn">import</span> <span class="n">BaseScript</span>
@@ -1240,13 +1240,13 @@
 <a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
 <a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>    <span class="n">script</span> <span class="o">=</span> <span class="n">MyScript</span><span class="p">()</span>
 <a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    <span class="n">script</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>This script will render some text on the screen every 0.5 seconds.</p>
-<p>If you want your loop to be run every tick, you might want to use a blocking call instead of <code>time.sleep</code> like this:
+<p>If you want your loop to be run every tick, you might want to use a blocking call instead of <code>time.sleep</code> like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>   <span class="n">packet</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wait_game_tick_packet</span><span class="p">()</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>   <span class="o">...</span>
-</code></pre></div></p>
+</code></pre></div>
 <p>For all available methods in the <code>BaseScript</code> class and their descriptions, see <a href="https://github.com/RLBot/RLBot/blob/master/src/main/python/rlbot/agents/base_script.py">its implementation here</a>.</p>
 <p><a href="https://github.com/RLBot/RLBot/tree/master/src/test/python/agents/script">Another fully functional script example</a></p>
 

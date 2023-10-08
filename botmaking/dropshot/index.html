@@ -1330,20 +1330,20 @@
   <h1>Dropshot</h1>
 
 <p>As of August 19. 2018 the RLBot framework officially supports Dropshot with access to locations and states of floor tiles. This page contains information and useful values related to the Dropshot game mode.</p>
-<p>To make RLBot start a Dropshot game you have to set the following values in <code>rlbot.cfg</code>:
+<p>To make RLBot start a Dropshot game you have to set the following values in <code>rlbot.cfg</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>game_mode = Dropshot
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>game_map = DropShot_Core707
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="tiles">Tiles</h2>
 <p>There are 140 tiles in total.
 Locations and owning team can be found in the agent's FieldInfo as GoalInfo objects. In Python <code>self.get_field_info().goals</code> will be a list of the floor tiles with following attributes:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GoalInfo: {
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>GoalInfo: {
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  &#39;team_num&#39;: int,
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  &#39;location&#39;: Vector3,
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  &#39;direction&#39;: Vector3,
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>}
 </code></pre></div>
-Example: To access the location of tile 0 in Python, write: <code>self.get_field_info().goals[0].location</code></p>
+<p>Example: To access the location of tile 0 in Python, write: <code>self.get_field_info().goals[0].location</code></p>
 <p>A list of all locations can be found <a href="https://pastebin.com/w79VhU8W">here</a>.</p>
 <p>To access the state of tile 0 in Python, write: <code>packet.dropshot_tiles[0].tile_state</code>. This is an integer which corresponds to:</p>
 <ul>
@@ -1359,18 +1359,20 @@ Example: To access the location of tile 0 in Python, write: <code>self.get_field
 <p>The tiles are layed out in rows of 7,8,9,10,11,12,13 |middle| 13,12,11,10,9,8,7. Where tile 0 is in the blue corner (back left if you are on blue team) and tile 139 is in an orange corner (back left if you are on the orange team).</p>
 <p>The overall layout of the arena and tile indices can be seen below.</p>
 <p><img alt="Layout of Core707" src="/img/dropshot/arena.png" /></p>
-<p>The arena is a regular hexagon except its rounded corners. Here are some dimensions:
-- Center: (0, 0)
-- Floor level: 3.2 uu
-- Center to wall: 4555 uu
-- Center to corner: 5026 uu
-- Center to corner (without rounding walls): 5259.66 uu
-- Wall length: about 5026 uu
-- Arena height: 1986 uu</p>
-<p>Note that the tiles on the boundaries are not complete - the rounded base of the walls overlaps the tiles to varying degrees (approximately 30-40% of the tile is overlapped, and the tile centrepoints are always visible). </p>
+<p>The arena is a regular hexagon except its rounded corners. Here are some dimensions:</p>
+<ul>
+<li>Center: (0, 0)</li>
+<li>Floor level: 3.2 uu</li>
+<li>Center to wall: 4555 uu</li>
+<li>Center to corner: 5026 uu</li>
+<li>Center to corner (without rounding walls): 5259.66 uu</li>
+<li>Wall length: about 5026 uu</li>
+<li>Arena height: 1986 uu</li>
+</ul>
+<p>Note that the tiles on the boundaries are not complete - the rounded base of the walls overlaps the tiles to varying degrees (approximately 30-40% of the tile is overlapped, and the tile centrepoints are always visible).</p>
 <p>You may notice that tiles' locations are at z=0, but floor level is z=3.2. This is because the tiles have a thickness.</p>
 <h4 id="within-arena-script">Within arena script</h4>
-<p>Here's a small script to check if a point is within the arena:
+<p>Here's a small script to check if a point is within the arena:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">is_within_arena</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">HEIGHT</span> <span class="o">=</span> <span class="mi">1986</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">TO_WALL</span> <span class="o">=</span> <span class="mi">4555</span>
@@ -1386,17 +1388,21 @@ Example: To access the location of tile 0 in Python, write: <code>self.get_field
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>        <span class="k">return</span> <span class="kc">False</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="k">return</span> <span class="n">TO_WALL</span> <span class="o">*</span> <span class="n">TO_CORNER</span> <span class="o">-</span> <span class="n">TO_WALL</span> <span class="o">*</span> <span class="n">ax</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">TO_CORNER</span> <span class="o">*</span> <span class="n">ay</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span>
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="ball">Ball</h2>
 <p>Ball radius: 102.24 uu</p>
 <p>The GameTickPacket contains Dropshot info about the ball. It can be found in the DropshotBallInfo object at <code>packet.game_ball.drop_shot_info</code> which contains the variables: <code>absorbed_force</code>, <code>damage_index</code>, and <code>force_accum_recent</code>.</p>
-<p>The ball has three phases. The current phase is the variable <code>damage_index</code> where:
-- 0: Normal
-- 1: Charged
-- 2: Super Charged</p>
-<p>The ball gains charge as it is hit by cars. When a car exerts a force on the ball, the ball charges up equal to the magnitude of the force (energy). The ball enters the next phase when it reaches a certain threshold:
-* Charged: 2500 energy
-* Super Charged: 11000 energy</p>
+<p>The ball has three phases. The current phase is the variable <code>damage_index</code> where:</p>
+<ul>
+<li>0: Normal</li>
+<li>1: Charged</li>
+<li>2: Super Charged</li>
+</ul>
+<p>The ball gains charge as it is hit by cars. When a car exerts a force on the ball, the ball charges up equal to the magnitude of the force (energy). The ball enters the next phase when it reaches a certain threshold:</p>
+<ul>
+<li>Charged: 2500 energy</li>
+<li>Super Charged: 11000 energy</li>
+</ul>
 <p>The current amount of energy (force absorded) is the <code>absorbed_force</code> variable.</p>
 <p>However, a hit does not always charge the ball. To make the ball charge up, the impact must be at least 500 energy, otherwise the ball will not charge at all. Furthermore, when the ball gets hit, it will temporarily accept less energy. The variable <code>force_accum_recent</code> stores the accumulated absorbed force (energy), but no more than 2500 energy. It decays over time at a rate of 2500 energy per second, and the ball will at most absorb <code>2500 - force_accum_recent</code> energy on a hit. Combined, this prevents players from charging the ball too quickly, limited to 2500 energy every second.</p>
 <p><em>Example: if you hit the ball with an impact of 2000 uu/s at t=0, and you hit the ball again with a force of 2000 uu/s at t=0.5, the <code>force_accum_recent</code> has decayed by 1250 and will be 750 when you hit the ball the second time, and therefore the ball will not accept more than 1750 energy, which means 250 energy gets lost.</em></p>

@@ -1360,10 +1360,12 @@
 <p>Sockets are currently available with Windows and Mac support only. Linux coming soon.</p>
 <p>You can use https://github.com/RLBot/RLBot/tree/master/src/main/cpp/RLBotInterface/src as a reference implementation in c++.</p>
 <h2 id="data-format">Data Format</h2>
-<p>Unless otherwise specified, data is sent and received on the socket in this format:
-- First two bytes are an integer (big-endian) which specifies the data type (see list below).
-- Next two bytes are an integer (big endian) which specifies the number of bytes in the payload.
-- Remaining bytes are a payload. The logic for parsing it will depend on the data type, but generally it will be binary data in <a href="https://google.github.io/flatbuffers/">flatbuffer format</a>. Using tools provided by Google (i.e. flatc.exe) and <a href="https://github.com/RLBot/RLBot/blob/master/src/main/flatbuffers/rlbot.fbs">rlbot.fbs</a> you can auto-generate code in various languages suitable for writing / parsing the payload data.</p>
+<p>Unless otherwise specified, data is sent and received on the socket in this format:</p>
+<ul>
+<li>First two bytes are an integer (big-endian) which specifies the data type (see list below).</li>
+<li>Next two bytes are an integer (big endian) which specifies the number of bytes in the payload.</li>
+<li>Remaining bytes are a payload. The logic for parsing it will depend on the data type, but generally it will be binary data in <a href="https://google.github.io/flatbuffers/">flatbuffer format</a>. Using tools provided by Google (i.e. flatc.exe) and <a href="https://github.com/RLBot/RLBot/blob/master/src/main/flatbuffers/rlbot.fbs">rlbot.fbs</a> you can auto-generate code in various languages suitable for writing / parsing the payload data.</li>
+</ul>
 <h2 id="data-types">Data Types</h2>
 <p>Types expected to flow from RLBot to the client are in bold. Some are bi-directional.</p>
 <ol>
@@ -1386,13 +1388,17 @@
 </li>
 </ol>
 <h2 id="connecting">Connecting</h2>
-<p>Prerequisites (handled automatically by RLBotGUI / the RLBot framework):
-- Rocket League must be running under the <code>-rlbot</code> flag.
-- RLBot.exe must be running. After it successfully connects to Rocket League, it will start listening on TCP port 23234.</p>
-<ol>
-<li>As a client, connect to TCP port 23234. <strong>Note: please expect to receive the port as a parameter in the future rather than hard coding</strong></li>
+<p>Prerequisites (handled automatically by RLBotGUI / the RLBot framework):</p>
+<ul>
+<li>Rocket League must be running under the <code>-rlbot</code> flag.</li>
+<li>
+<p>RLBot.exe must be running. After it successfully connects to Rocket League, it will start listening on TCP port 23234.</p>
+</li>
+<li>
+<p>As a client, connect to TCP port 23234. <strong>Note: please expect to receive the port as a parameter in the future rather than hard coding</strong></p>
+</li>
 <li>Send a 'ready' message, as defined <a href="https://github.com/RLBot/RLBot/blob/master/src/main/flatbuffers/rlbot.fbs#L818-L825">here</a>. Be sure to use the data format explained above (two bytes for data type, two bytes for size...)</li>
-</ol>
+</ul>
 <p>Some attributes in the ready message are not used yet. Once you're connected, you will start receiving data on the socket, with one of the data types specified above.</p>
 <h2 id="sending-data">Sending Data</h2>
 <p>Send data to the same TCP socket, using the same format (two bytes for type, two bytes for size). You can send match settings (starts a new match), player input, desired game state, render group, and quick chat.</p>

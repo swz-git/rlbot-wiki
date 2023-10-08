@@ -1352,7 +1352,7 @@
 <p>Rocket League is made in Unreal Engine, which means any dimensions will be in unreal units (uu).</p>
 <h2 id="basic-dimensions">Basic Dimensions</h2>
 <p><strong>WARNING:</strong> Note that the X-axis is left and it is not the normal Cartesian layout. Also, yaw is zero at the positive x-axis and increases clockwise. Trig functions work out as usual because the two reversed conventions cancel each other.</p>
-<p>Rotations are represented as YZX-ordered Euler angles. </p>
+<p>Rotations are represented as YZX-ordered Euler angles.</p>
 <p><strong>Note:</strong> For scratch divide the values by 32.</p>
 <p>Rocket League uses a coordinate system (X, Y, Z), where Z is upwards. Note also that <strong>negative Y is towards Blue's goal (team 0)</strong>.</p>
 <ul>
@@ -1392,7 +1392,7 @@
 <p>A car picks up a boost pad if the car's center of mass (not hitbox) enters the pad's hitbox. This interaction is different when cars are standing still (see the <a href="https://www.youtube.com/watch?v=xgfa-qZyInw">Rocket Science video on boost pad hitboxes</a>)</p>
 <p>The coordinates of the 34 boost pads (in the order that RLBot uses):</p>
 <p><img alt="" src="/img/useful-game-values/boost-pads.jpg" /></p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[    0.0, -4240.0, 70.0] (0)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[    0.0, -4240.0, 70.0] (0)
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>[-1792.0, -4184.0, 70.0] (1)
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>[ 1792.0, -4184.0, 70.0] (2)
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>[-3072.0, -4096.0, 73.0] (3)
@@ -1427,7 +1427,7 @@
 <a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>[ 1792.0,  4184.0, 70.0] (32)
 <a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>[    0.0,  4240.0, 70.0] (33)
 </code></pre></div>
-<strong>NOTE:</strong> Some boost pad locations vary from map to map. It is recommended to use the <a href="https://github.com/RLBot/RLBotPythonExample/wiki/Input-and-Output-Data#field-info">FieldInfo</a>, if you want to have the correct locations for any map.</p>
+<p><strong>NOTE:</strong> Some boost pad locations vary from map to map. It is recommended to use the <a href="https://github.com/RLBot/RLBotPythonExample/wiki/Input-and-Output-Data#field-info">FieldInfo</a>, if you want to have the correct locations for any map.</p>
 <h2 id="spawn-locations">Spawn Locations</h2>
 <table>
 <thead>
@@ -1553,7 +1553,8 @@
 <li>Maximum car angular velocity: 5.5 radians/s</li>
 <li>Turning</li>
 <li>Turning in Rocket League is very complex and not a lot is known. Hopefully, the numbers below can help you out a bit!</li>
-<li>Turn radius: https://samuelpmish.github.io/notes/RocketLeague/ground_control/#turning. Python implementation:
+<li>Turn radius: https://samuelpmish.github.io/notes/RocketLeague/ground_control/#turning. Python implementation:</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">turn_radius</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>        <span class="k">return</span> <span class="mi">0</span>
@@ -1573,16 +1574,19 @@
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        <span class="k">return</span> <span class="mf">0.001800</span> <span class="o">-</span> <span class="mf">4e-7</span> <span class="o">*</span> <span class="n">v</span>
 <a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
 <a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="k">return</span> <span class="mf">0.0</span>
-</code></pre></div></li>
-<li>No matter if you're accelerating or decelerating, (as the throttle is 1) the car's turn radius and velocity balance out so the car turns 90 degrees in about 0.775 seconds, 180 degrees in 1.55 seconds, and 360 degrees in 3.1 seconds.</li>
-<li>
-<p>Accelerating while turning (starting from a standstill with throttle and steer set to 1)</p>
+</code></pre></div>
 <ul>
-<li>While turning with steer set to 1 (or -1), the maximum forwards velocity the car can reach is around 1234. It reaches this after 5 seconds.</li>
-<li>The speed of the car after x time can be estimated with the following equation: <code>1234 * (1 - e ^ [-{time / 0.74704}])</code></li>
-</ul>
+<li>No matter if you're accelerating or decelerating, (as the throttle is 1) the car's turn radius and velocity balance out so the car turns 90 degrees in about 0.775 seconds, 180 degrees in 1.55 seconds, and 360 degrees in 3.1 seconds.</li>
+<li>Accelerating while turning (starting from a standstill with throttle and steer set to 1)</li>
+<li>
+<p>While turning with steer set to 1 (or -1), the maximum forwards velocity the car can reach is around 1234. It reaches this after 5 seconds.</p>
+</li>
+<li>
+<p>The speed of the car after x time can be estimated with the following equation: <code>1234 * (1 - e ^ [-{time / 0.74704}])</code></p>
 <p><img alt="Graph of the velocity while turning starting from 0" src="/img/useful-game-values/car1.png" /></p>
-<p>Example Python implementation:
+<p>Example Python implementation:</p>
+</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">math</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">VMAX</span> <span class="o">=</span> <span class="mi">1234</span>
@@ -1594,14 +1598,14 @@
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">def</span> <span class="nf">get_turn_time_from_speed</span><span class="p">(</span><span class="n">speed</span><span class="p">):</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">speed_adj</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">speed</span> <span class="o">/</span> <span class="n">VMAX</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="k">return</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">speed_adj</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">e</span><span class="p">)</span> <span class="o">*</span> <span class="n">TAU</span>
-</code></pre></div></p>
+</code></pre></div>
+<ul>
+<li>Decelerating while turning (starting from the top speed with throttle and steer set to 1)</li>
+<li>
+<p>While turning with steer set to 1 (or -1), the minimum forward velocity the car can reach is around 1234. It reaches this after 7.5 seconds.</p>
 </li>
 <li>
-<p>Decelerating while turning (starting from the top speed with throttle and steer set to 1)</p>
-<ul>
-<li>While turning with steer set to 1 (or -1), the minimum forward velocity the car can reach is around 1234. It reaches this after 7.5 seconds.</li>
-<li>The speed and time can both be estimated with linear piecewise functions. The blue lines is the real velocity, and the orange line is the velocity that is predicted by the piecewise.</li>
-</ul>
+<p>The speed and time can both be estimated with linear piecewise functions. The blue lines is the real velocity, and the orange line is the velocity that is predicted by the piecewise.</p>
 <p><img alt="Graph of the velocity while turning starting from 2300" src="/img/useful-game-values/car2.png" /></p>
 <p>Example Python implementation:</p>
 </li>

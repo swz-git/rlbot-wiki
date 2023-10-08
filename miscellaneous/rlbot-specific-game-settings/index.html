@@ -1266,19 +1266,23 @@
 <p>To have settings that only apply when using RLBot, a <em>TASystemSettings.RLBot.ini</em> file has to be created in the same folder as <em>TASystemSettings.ini</em>. This file does <strong>not</strong> need to be a full copy of <em>TASystemSettings.ini</em>, but should <strong>only</strong> contain the <strong>differences</strong> with <em>TASystemSettings.ini</em> to improve compatibility with Rocket League updates. When RLBot starts up, the changes found in <em>TASystemSettings.RLBot.ini</em> will be temporarily applied to <em>TASystemSettings.ini</em>.</p>
 <p>The remainder of this page contains some example use cases.</p>
 <h2 id="cap-the-in-game-fps-to-120-for-rlbot-uncap-the-fps-during-normal-play">Cap the in game FPS to 120 for RLBot, uncap the FPS during normal play</h2>
-<p>This is useful to create the most consistent environment for RLBot. See <a href="/tick-rate">Tick Rate</a> for more info.
-* The FPS will have to be uncapped during normal play. This is achieved by setting <code>AllowPerFrameSleep=False</code> in <em>TASystemSettings.ini</em>.
-* In the game pause screen, the fps cap has to be set to 120 exactly.
-* <em>TASystemSettings.RLBot.ini</em> should contain the following configuration to turn the FPS cap back on for RLBot:
+<p>This is useful to create the most consistent environment for RLBot. See <a href="/tick-rate">Tick Rate</a> for more info.</p>
+<ul>
+<li>The FPS will have to be uncapped during normal play. This is achieved by setting <code>AllowPerFrameSleep=False</code> in <em>TASystemSettings.ini</em>.</li>
+<li>In the game pause screen, the fps cap has to be set to 120 exactly.</li>
+<li><em>TASystemSettings.RLBot.ini</em> should contain the following configuration to turn the FPS cap back on for RLBot:</li>
+</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[SystemSettings]
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>AllowPerFrameSleep=True
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="other-useful-settings-for-bot-testing">Other Useful Settings For Bot Testing</h2>
-<p>in [SystemSettings]:
-* ResX=1280 (Change the x value of your resolution)
-* ResY=720 (Change the y value of your resolution)
-* Fullscreen=False (False for window mode, True for fullscreen)
-* Borderless=True (enable borderless for windowed mode aka Fullscreen=False)</p>
+<p>in [SystemSettings]:</p>
+<ul>
+<li>ResX=1280 (Change the x value of your resolution)</li>
+<li>ResY=720 (Change the y value of your resolution)</li>
+<li>Fullscreen=False (False for window mode, True for fullscreen)</li>
+<li>Borderless=True (enable borderless for windowed mode aka Fullscreen=False)</li>
+</ul>
 
 
 
