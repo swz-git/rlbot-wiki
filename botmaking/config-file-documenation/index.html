@@ -1322,31 +1322,37 @@
 <h1 id="bot-config-file">Bot Config File</h1>
 <h2 id="sections">Sections</h2>
 <h3 id="locations">Locations</h3>
-<p>This section is poorly named at this point, but oh well. It includes:
-- looks_config: The location of your bot's appearance config, relative to the cfg file.
-- python_file: The location of your bot's python file, relative to the cfg file.
-- logo_file: Optional. The location of an image that will represent your bot in RLBotGUI, tournament overlays, etc.
-- name: The name of your bot in-game.
-- supports_early_start: Optional. Indicates whether your bot can handle the early start system. Read below for details.
-- requirements_file: Optional. The location of a requirements.txt for your bot. If specified, RLBotGUI will use it to warn people if there's a missing dependency, and they'll have the option to install your requirements.txt file.
-- use_virtual_environment: Optional, defaults to False. Installs your bot's requirements from the requirements.txt file into a python venv so they're isolated from potentially conflicting requirements from other bots. See <a href="https://github.com/RLBot/RLBot/pull/536">pr #535</a> 
-- loadout_generator: Optional. Location of a script that can influence your bot's appearance on startup for randomization / index-dependent changes. See <a href="/bot-customization#loadout-generator">loadout generator</a>
-- requires_tkinter: Optional. Set it to true if your bot needs tkinter, and if the user is running a GUI which lacks tkinter, they will be warned.</p>
+<p>This section is poorly named at this point, but oh well. It includes:</p>
+<ul>
+<li>looks_config: The location of your bot's appearance config, relative to the cfg file.</li>
+<li>python_file: The location of your bot's python file, relative to the cfg file.</li>
+<li>logo_file: Optional. The location of an image that will represent your bot in RLBotGUI, tournament overlays, etc.</li>
+<li>name: The name of your bot in-game.</li>
+<li>supports_early_start: Optional. Indicates whether your bot can handle the early start system. Read below for details.</li>
+<li>requirements_file: Optional. The location of a requirements.txt for your bot. If specified, RLBotGUI will use it to warn people if there's a missing dependency, and they'll have the option to install your requirements.txt file.</li>
+<li>use_virtual_environment: Optional, defaults to False. Installs your bot's requirements from the requirements.txt file into a python venv so they're isolated from potentially conflicting requirements from other bots. See <a href="https://github.com/RLBot/RLBot/pull/536">pr #535</a> </li>
+<li>loadout_generator: Optional. Location of a script that can influence your bot's appearance on startup for randomization / index-dependent changes. See <a href="/bot-customization#loadout-generator">loadout generator</a></li>
+<li>requires_tkinter: Optional. Set it to true if your bot needs tkinter, and if the user is running a GUI which lacks tkinter, they will be warned.</li>
+</ul>
 <h3 id="bot-parameters">Bot Parameters</h3>
 <p>This is mainly for bot makers to add arbitrary config values useful to them. Generally the framework doesn't care what you put here, except in the case of Scratch bots.</p>
 <h3 id="details">Details</h3>
-<p>This section is for metadata about your bot which can be displayed to people in RLBotGUI, tournament overlays, etc. Common details included:
-- developer: The name of the developer(s) of the bot.
-- description: Textual description of the bot, its playstyle, how to use it, etc.
-- fun_fact: A short fun fact about the bot. Sometimes displayed on stream during tournaments.
-- github: A github link
-- language: Which language/technology the bots was made with
-- tags: A comma separated list of tags. Primarily used by the RLBotGUI to put the bot in the correct tabs. Common tags include: 1v1, teamplay, goalie, hoops, dropshot, snow-day, rumble, spike-rush, heatseeker, memebot</p>
+<p>This section is for metadata about your bot which can be displayed to people in RLBotGUI, tournament overlays, etc. Common details included:</p>
+<ul>
+<li>developer: The name of the developer(s) of the bot.</li>
+<li>description: Textual description of the bot, its playstyle, how to use it, etc.</li>
+<li>fun_fact: A short fun fact about the bot. Sometimes displayed on stream during tournaments.</li>
+<li>github: A github link</li>
+<li>language: Which language/technology the bots was made with</li>
+<li>tags: A comma separated list of tags. Primarily used by the RLBotGUI to put the bot in the correct tabs. Common tags include: 1v1, teamplay, goalie, hoops, dropshot, snow-day, rumble, spike-rush, heatseeker, memebot</li>
+</ul>
 <h2 id="early-start-system">Early Start System</h2>
-<p>If a bot adds <code>supports_early_start = True</code> then it will be started up before the Rocket League match loads, which gives it lots of extra time. To live happily in this situation the bot MUST be able to deal with weird game tick packets, e.g.:
-- Could have unexpected bots / unexpected teams
-- The bot's index might be higher than the packet's num_cars
-- The packet may transition suddenly to a different set of cars, different game type, etc</p>
+<p>If a bot adds <code>supports_early_start = True</code> then it will be started up before the Rocket League match loads, which gives it lots of extra time. To live happily in this situation the bot MUST be able to deal with weird game tick packets, e.g.:</p>
+<ul>
+<li>Could have unexpected bots / unexpected teams</li>
+<li>The bot's index might be higher than the packet's num_cars</li>
+<li>The packet may transition suddenly to a different set of cars, different game type, etc</li>
+</ul>
 <h1 id="match-config-file-rlbotcfg">Match Config File (rlbot.cfg)</h1>
 <p>This configuration controls which bots are in the game, what arena to play on, what mutators to use, etc.
 <a href="https://github.com/RLBot/RLBot/blob/master/rlbot.cfg">Example config</a></p>
@@ -1365,11 +1371,13 @@
 <li>launcher_preference: 'steam' or 'epic'. For people who have the game on both, determines which launcher is preferred for opening Rocket League.</li>
 </ul>
 <h3 id="team-configuration">Team Configuration</h3>
-<p>NOTE:  None of these take an effect currently
-- Team Blue Color:  Changes Blue team color, use 0 to use default color
-- Team Blue Name: Changes the Team name to use instead of 'Blue'
-- Team Orange Color: Changes Blue team color, use 0 to use default color
-- Team Orange Name: Changes the Team name to use instead of 'Orange'</p>
+<p>NOTE:  None of these take an effect currently</p>
+<ul>
+<li>Team Blue Color:  Changes Blue team color, use 0 to use default color</li>
+<li>Team Blue Name: Changes the Team name to use instead of 'Blue'</li>
+<li>Team Orange Color: Changes Blue team color, use 0 to use default color</li>
+<li>Team Orange Name: Changes the Team name to use instead of 'Orange'</li>
+</ul>
 <h3 id="match-configuration">Match Configuration</h3>
 <ul>
 <li>num_participants: The total number of cars that will be spawned into the match.</li>
@@ -1406,8 +1414,7 @@
 <ul>
 <li>participant_config_NUMBER:  The path to a participant configuration</li>
 <li>participant_team_NUMBER: what team the bot is on</li>
-<li>participant_type_NUMBER: the type of the bot Accepted values are "human", "rlbot", "psyonix", "party_member_bot", and "controller_passthrough", You can have up to 4 local humans and they must be activated in game or it will crash.
-If no player is specified you will be spawned in as spectator!</li>
+<li>participant_type_NUMBER: the type of the bot Accepted values are "human", "rlbot", "psyonix", "party_member_bot", and "controller_passthrough", You can have up to 4 local humans and they must be activated in game or it will crash. If no player is specified you will be spawned in as spectator!</li>
 <li>human - not controlled by the framework (but must appear before bot entries)</li>
 <li>rlbot - controlled by the framework</li>
 <li>psyonix - default bots (skill level can be changed with participant_bot_skill</li>
