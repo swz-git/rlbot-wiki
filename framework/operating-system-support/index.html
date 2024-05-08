@@ -898,30 +898,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#instructions-for-debian-based-linux" class="md-nav__link">
-    Instructions for Debian-based Linux
+  <a href="#linux" class="md-nav__link">
+    Linux
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mac-and-non-debian-based-linux" class="md-nav__link">
-    Mac and Non-Debian based Linux
+  <a href="#mac" class="md-nav__link">
+    Mac
   </a>
   
-    <nav class="md-nav" aria-label="Mac and Non-Debian based Linux">
+    <nav class="md-nav" aria-label="Mac">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#instructions" class="md-nav__link">
     Instructions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    Troubleshooting
   </a>
   
 </li>
@@ -1265,30 +1258,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#instructions-for-debian-based-linux" class="md-nav__link">
-    Instructions for Debian-based Linux
+  <a href="#linux" class="md-nav__link">
+    Linux
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mac-and-non-debian-based-linux" class="md-nav__link">
-    Mac and Non-Debian based Linux
+  <a href="#mac" class="md-nav__link">
+    Mac
   </a>
   
-    <nav class="md-nav" aria-label="Mac and Non-Debian based Linux">
+    <nav class="md-nav" aria-label="Mac">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#instructions" class="md-nav__link">
     Instructions
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    Troubleshooting
   </a>
   
 </li>
@@ -1317,36 +1303,21 @@
 
 <h2 id="windows">Windows</h2>
 <p>RLBot was originally made for Windows, so Windows has the best support. Users are encouraged to watch <a href="https://www.youtube.com/watch?v=oXkbizklI2U">this video</a> to get started quickly with RLBotGUI!</p>
-<h2 id="instructions-for-debian-based-linux">Instructions for Debian-based Linux</h2>
-<p>RLBotGUI has it's own installer/launcher for Debian-based Linux. Download <a href="https://raw.githubusercontent.com/RLBot/RLBotGUI/master/linux-install/RLBotGUI.sh">RLBotGUI.sh</a> to get it.</p>
-<p><a href="https://github.com/RLBot/RLBotGUI/tree/master/linux-install">View this page for more information</a>. This includes information on how to run shell scripts, and what commands need sudo in order to run.</p>
-<h2 id="mac-and-non-debian-based-linux">Mac and Non-Debian based Linux</h2>
-<p>RLBot gained basic Linux support on 2019-09-03, and basic Mac support on 2019-12-07.</p>
-<p>RLBotGUI (not the RLBot Framework!) gained full support for Debian-based Linux distros on 2020-06-21.</p>
-<p>2020-9-23 - Running Rocket League Mac and Linux is not possible if you have Rocket League on the Epic Games Launcher. Therefore in order to use Rocket League (and RLBot), you must have bought Rocket League before this date on Steam.</p>
-<ul>
-<li>Mac Big Sur is currently incompatible as of 2021-07-07.</li>
-<li>Tested in Ubuntu 20.04 and Mac High Sierra with basic python bots.</li>
-<li>Many bots and languages don't work yet.</li>
-<li>Our Mac and Linux binaries may not be updated as frequently as the Windows ones.</li>
-</ul>
+<h2 id="linux">Linux</h2>
+<p>RLBot only runs on linux with the old native linux version of rocket league. This version is only available on steam. There is a (probably outdated) install script <a href="https://github.com/RLBot/RLBotGUI/tree/master/linux-install">here</a>.</p>
+<p>If you only have the epic version of the game or you want to run the proton version, you're unfortunately out of luck. This is due to <a href="https://github.com/RLBot/RLBot/blob/master/src/main/python/rlbot/dll/libRLBotInterface.so">libRLBotInterface.so</a> being broken on linux. A rewrite of RLBot (v5) is being worked on and will support linux.</p>
+<h2 id="mac">Mac</h2>
+<p>Mac support is currently unknown and may not work. If you want to try, see the instructions below.</p>
 <h3 id="instructions">Instructions</h3>
 <ol>
-<li>Make sure you have Python 3.7 or higher (<code>sudo apt install python3</code>).</li>
-<li>Make sure you have pip (<code>sudo apt install python3-pip</code>).</li>
-<li>Make yourself a shell script with:</li>
+<li>Make sure you have Python 3.11 and pip</li>
+<li>Run these commands</li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python3 -m pip install --user --upgrade pip
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python3 -m pip install --user gevent eel
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>python3 -m pip install --user --upgrade rlbot rlbot_gui
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>python3 -c &quot;from rlbot_gui import gui; gui.start()&quot;
 </code></pre></div>
-<p>Run it and expect the GUI to open. Check the windows video to see what to expect. Make sure Rocket League is <strong>closed</strong> before starting your first match.</p>
-<h3 id="troubleshooting">Troubleshooting</h3>
-<ul>
-<li>No module named setuptools: try https://stackoverflow.com/questions/14426491/python-3-importerror-no-module-named-setuptools</li>
-<li>Header Python.h does not exist: try installing the package python-dev</li>
-</ul>
 
 
 
