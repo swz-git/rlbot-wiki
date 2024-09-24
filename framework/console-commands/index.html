@@ -980,6 +980,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RLBot v5 (Beta) Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1289,11 +1309,24 @@
 <p>All of these are confirmed to work as intended. Please add more as you find them!</p>
 <ul>
 <li><code>QueSaveReplay</code> - Creates a replay keyframe and causes a replay to be saved at the end of the match.</li>
-<li><code>Set WorldInfo WorldGravityZ 0.0000001</code> - Zero gravity (pretty much). Setting to 0 returns it to default. You can also use <a href="/botmaking/manipulating-game-state">state setting</a> to set gravity. <strong>Warning:</strong> Sending this command every frame will likely make your game lag!</li>
-<li><code>Set WorldInfo TimeDilation 3</code> - Speeds up the game by 3 times. Can also be used to slow down the game with a number between 0 and 1. You can also use <a href="/botmaking/manipulating-game-state">state setting</a> to set game speed.</li>
+<li><code>Set WorldInfo WorldGravityZ 0.0000001</code> - Zero gravity (pretty much). Setting to 0 returns it to default.
+  You can also use <a href="/botmaking/manipulating-game-state">state setting</a> to set gravity.
+  <strong>Warning:</strong> Sending this command every frame will likely make your game lag!</li>
+<li><code>Set WorldInfo TimeDilation 3</code> - Speeds up the game by 3 times. Can also be used to slow down the game
+  with a number between 0 and 1. You can also use <a href="/botmaking/manipulating-game-state">state setting</a>
+  to set game speed.</li>
 <li><code>Stat FPS</code> - Turns on a little in-game FPS counter. Can be turned back off with <code>Stat FPS 0</code></li>
-<li><code>ShowDebug PHYSICS</code> - Nice little text readout which shows you some values, and also the names of some specific classes/attributes that you can use <code>Set</code> on.</li>
-<li><code>Pause</code> - Pauses the game. Send <code>Pause</code> to unpause the game. <code>get_output</code>/<code>GetOutput</code>/<code>getOutput</code> will still be called when the game is paused. This pause is the same as the pause when Escape is pressed.</li>
+<li><code>ShowDebug PHYSICS</code> - Nice little text readout which shows you some values, and also the names of some
+  specific classes/attributes that you can use <code>Set</code> on.</li>
+<li><code>Pause</code> - Pauses the game. Send <code>Pause</code> to unpause the game. <code>get_output</code>/<code>GetOutput</code>/<code>getOutput</code> will
+  still be called when the game is paused. This pause is the same as the pause when Escape is pressed.</li>
+<li><code>ViewAutoCam</code> - This will set the camera to auto-cam mode.</li>
+<li><code>ViewDefault</code> - Go to the default director camera mode.</li>
+<li><code>ViewPlayer &lt;team index&gt; &lt;player index&gt;</code> To go a specific player POV - e.x. <code>ViewPlayer 0 2</code> to view
+  the third player on blue and <code>ViewPlayer 1 2</code> to view the third player on orange.</li>
+<li><code>CycleHUD</code> - The equivalent of pressing <code>H</code> to cycle through the HUD options.</li>
+<li><code>CycleCamera</code> - Goes to the next camera view. For example, <code>ViewAutoCam</code> and then <code>CycleCamera</code> puts the
+  camera into the free-flying mode.</li>
 </ul>
 <h2 id="research-for-more-console-commands">Research for More Console Commands</h2>
 <p>Try some of these!</p>
