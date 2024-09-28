@@ -1434,12 +1434,14 @@
 <ul>
 <li>participant_config_NUMBER:  The path to a participant configuration</li>
 <li>participant_team_NUMBER: what team the bot is on</li>
-<li>participant_type_NUMBER: the type of the bot Accepted values are "human", "rlbot", "psyonix", "party_member_bot", and "controller_passthrough", You can have up to 4 local humans and they must be activated in game or it will crash. If no player is specified you will be spawned in as spectator!</li>
+<li>participant_type_NUMBER: the type of the bot Accepted values are "human", "rlbot", "psyonix", "party_member_bot", and "controller_passthrough", You can have up to 4 local humans and they must be activated in game or it will crash. If no player is specified you will be spawned in as spectator!<ul>
 <li>human - not controlled by the framework (but must appear before bot entries)</li>
 <li>rlbot - controlled by the framework</li>
 <li>psyonix - default bots (skill level can be changed with participant_bot_skill</li>
 <li>party_member_bot - controlled by an rlbot but the game detects it as a human</li>
 <li>controller_passthrough - controlled by a human but runs through the framework</li>
+</ul>
+</li>
 <li>participant_bot_skill_NUMBER: 0.0 is Rookie, 0.5 is pro, 1.0 is all-star</li>
 <li>participant_loadout_config_NUMBER: the path to the loadout.   This overrides the agent config if not None</li>
 </ul>

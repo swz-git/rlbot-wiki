@@ -1314,15 +1314,15 @@
 
 
 <h1 id="rlbot-v5-beta-overview">RLBot v5 (Beta) Overview</h1>
-<p>RLBot v5 is the next major update to the RLBot framework bringing a host of reliability improvements and some new features to the table.</p>
+<p>RLBot v5 is the next major version of the RLBot framework bringing a host of reliability improvements and some new features to the table.</p>
 <p>RLBot v5 is now in beta.
 In this beta period we will fix bugs, incorporate feedback, and potentially make minor breaking changes.
-However, RLBot v5 should now be feature-complete and people can start adopting it.
+However, RLBot v5 is now about feature-complete and people can start adopting it.
 Note that the various language interfaces are currently in development and may be unstable.
 There is also no GUI and distribution method yet.
 You can find the newest version of <code>RLBotServer.exe</code> on <a href="https://github.com/RLBot/core/releases">github.com/RLBot/core/releases</a>.
-See <a href="https://github.com/VirxEC/python-interface/wiki/Migration">Virx' Video</a> on how to get started in RLBot v5 beta with Python.</p>
-<p>Any updates to RLBot v5 beta and language interfaces will be announced in the <a href="https://discord.com/channels/348658686962696195/352588748401410049">RLBot Discord #annoucements</a> channel.</p>
+See <a href="https://youtu.be/GLqvodQ942A?si=WVnwyEpThDVnhqYu">Virx' Video</a> on how to get started in RLBot v5 beta with Python.</p>
+<p>Any updates to RLBot v5 beta and the language interfaces will be announced in the <a href="https://discord.com/channels/348658686962696195/352588748401410049">RLBot Discord #annoucements</a> channel.</p>
 <ul>
 <li>If you find bugs, please report them on <a href="https://github.com/RLBot/core/issues">Github</a>.</li>
 <li>If you run into issues with v5, you can find help on Discord, either in the appropriate <a href="https://discord.com/channels/348658686962696195/446761380654219264">language channel</a> or in the <a href="https://discord.com/channels/348658686962696195/423167304956903428">#framework-dev</a> channel.
@@ -1331,38 +1331,39 @@ See <a href="https://github.com/VirxEC/python-interface/wiki/Migration">Virx' Vi
 </ul>
 <p>In the remainder of this document we will cover:</p>
 <ul>
-<li>Our reasoning for creating v5 and an overview of its architecture,</li>
-<li>A list of features completed/reworked/todo/removed in v5 (beta),</li>
-<li>A guide on how to transition from v4 to v5,</li>
-<li>Links to v5 language interfaces and more.</li>
+<li>Our reasoning for creating v5 and an overview of its architecture <a href="#why-v5">-&gt;</a>,</li>
+<li>A list of features completed/reworked/todo/removed in v5 (beta) <a href="#features-of-v5">-&gt;</a>,</li>
+<li>A guide on breaking changes and how to transition from v4 to v5 <a href="#breaking-changes-migration">-&gt;</a>,</li>
+<li>Links to v5 language interfaces and more <a href="#links-and-resources">-&gt;</a>.</li>
 </ul>
 <h2 id="why-v5">Why v5?</h2>
-<p>RLBot v4 has been the most userfriendly and stable version of RLBot yet.
+<p>RLBot v4 has been incredibly userfriendly, feature rich, and stable.
 It was made in 2018 when RLBot was still using DLL injection.
-Later, in 2019, the collaboration with Psyonix and the official API were revealed.
+Later, in 2019, the collaboration with Psyonix and the official API were introduced.
 Since then, there have only been minor changes and new features, which proves how well-designed v4 was.
 In fact, v5 is not that different from v4.
 It is primarily a rewrite and an opportunity fix the flaws of v4 that have been revealed over the years.
 So here are the main reasons we made v5:</p>
 <ul>
-<li>The closed-sourced part of v4 is doing more than just communication with the Psyonix API.
+<li>The closed-source part of v4 is doing more than just communication with the Psyonix API.
   This has long prevented the community from fixing certain bugs themselves.
-  Therefore we are extracting part of the closed-source part into the opens-source part of RLBot such that only the communication is closed-source.</li>
-<li>The closed-sourced part of v4 is written in C++.
+  Therefore we are extracting that functionality into the open-source part of RLBot, making the closed-source part exclusively about communication with the API.</li>
+<li>The closed-source part of v4 is written in C++.
   By rewritting the backend of RLBot in C# we hope that more people feel comfortable contributing to it.</li>
 <li>No more DLLs. You may not be aware, but most bots still uses a DLL to communicate directly to the RLBot backend.
   In v5, the transition to web sockets is finally complete and this allows the bot inferfaces to be improved (e.g. Python type hints are not a hack anymore).</li>
-<li>All languages can start matches in v4, technically, but the logic for launching of Rocket League and bots was only implemented in Python (and partially Rust).
-  This discourage us from writing match starters (GUI, autoleague, etc) in other languages than Python (even CleoPetra in Java uses a Python process to start matches).
-  Therefore we move this logic to the backend for v5 such that more languages can benefit from it.</li>
+<li>All languages can start matches in v4, but the logic for launching of Rocket League and bots was only implemented in Python (and partially Rust).
+  This discouraged people from writing match starters (GUI, autoleague, etc) in other languages than Python (even CleoPetra written in Java uses a Python process to start matches).
+  Therefore we are moving this logic to the backend for v5 such that more languages can benefit from it.</li>
+<li>We are releasing ourselves from design choices made under restrictions of the DLL injection.</li>
 <li>The Psyonix API made a few extra features availble to us, but we never integrated them in v4. They are integerated in v5.</li>
 <li>Python is very slow. The rewrite in C# has made this clear.</li>
 <li>The <code>.cfg</code> file format has no standard.</li>
 </ul>
-<p>So while the changes to the functionality and interface are minor, the architecture and the framework's interal code is very different.
+<p>So while the changes to the functionality and interface are minor, the architecture and the framework's internal code is very different.
 We hope these changes will make it enjoyable to work with and contribute to RLBot moving forward.</p>
 <h2 id="features-of-v5">Features of v5</h2>
-<p>Legend: ✅=done, 🟨=todo, ✨=new, 🛠=reworked/changed, ⛔=removed</p>
+<p>[Legend: ✅=done, 🟨=todo, ✨=new, 🛠=reworked/changed, ⛔=removed]</p>
 <ul>
 <li>✅🛠 First-class Windows &amp; Linux support<ul>
 <li>No current plans for MacOS, as there's no way to run Rocket League without a full VM</li>
@@ -1451,150 +1452,9 @@ engineer your bot around this by, for example, using an extra asynchronous threa
 </ul>
 <p>On top of all that, the framework is also simply significantly faster.</p>
 <h2 id="breaking-changes-migration">Breaking Changes / Migration</h2>
-<p>Many things will feel familiar in v5, but there's several breaking changes that have been made:</p>
-<ul>
-<li><code>RLBot.exe</code> has been renamed to <code>RLBotServer.exe</code>.<ul>
-<li>Instead of the entire binary being closed-source, as much of the code as possible is now open-source
-in <a href="https://github.com/RLBot/core">RLBot/core</a>.</li>
-<li>Anyone can build <code>RLBotServer.exe</code> after making changes to the code due to <code>Bridge.dll</code> - this binary is
-closed-source due to legal restrictions around the Psyonix API, but this knew binary was built to be as minimal
-as possible while adhering to those restrictions.</li>
-</ul>
-</li>
-<li>All bots are now expected to run at 120hz. If you need more time to process inputs, it's advisable to
-    engineer your bot around this by, for example, using an extra asynchronous thread running complex algorithms.</li>
-<li>
-<p>Config files have changed</p>
-<ul>
-<li>Instead of the arbitrary <code>cfg</code> file format, we now use <code>toml</code> files. This is a standardized format that
-is easier to read and write and has better support over different languages. Many IDEs also support syntax
-highlighting for <code>toml</code> files.</li>
-<li>Bots config files <em>must</em> end in <code>bot.toml</code>. This includes hiveminds. Example valid file names include:<ul>
-<li><code>bot.toml</code></li>
-<li><code>super_bot.bot.toml</code></li>
-<li><code>super_ultra.bot.toml</code></li>
-</ul>
-</li>
-<li>Script config files <em>must</em> end in <code>script.toml</code>. Example valid file names include:<ul>
-<li><code>script.toml</code></li>
-<li><code>super_script.script.toml</code></li>
-<li><code>super_ultra.script.toml</code></li>
-</ul>
-</li>
-<li>Other config files have no defined naming convention.</li>
-<li>
-<p>Bot/Script/Hivemind config file format:</p>
-<ul>
-<li><code>[Locations]</code> has been renamed to <code>[settings]</code></li>
-<li><code>hivemind</code> must be set to <code>true</code> instead of <code>[settings]</code> if the bot is a hivemind</li>
-<li><code>python_file</code>, <code>requirements_file</code>, <code>supports_standalone</code>, and <code>use_virtual_environment</code> have been replaced
-with a different concept: <code>run_command</code> and <code>run_command_linux</code> are ran in a shell to start the bot.<ul>
-<li>Note: Bots submitted to the v5 botpack (TODO) will be expected to be packagable in a self-contained
-executable that is built from source by an automated deployment pipeline. This includes Python bots.</li>
-</ul>
-</li>
-<li>New optional value <code>location</code> - will set the working directory to something other than the directory that
-  the config file is currently located in.</li>
-<li><code>maximum_tick_rate_preference</code> has been removed, every bot is expected to run at 120hz</li>
-<li><code>supports_early_start</code> has been removed, as all bots are booted as soon as possible. Bots no longer know
-their index when booting, but they do know their name &amp; team.</li>
-<li><code>looks_config</code> and <code>loadout_generator</code> have been replaced with <code>loadout_config</code><ul>
-<li>If <code>loadout_config</code> is not set, then your bot can send a <code>SetLoadout</code> message during boot-up. This is a
-direct replacement for the old loadout generator script.</li>
-</ul>
-</li>
-<li><code>[Details]</code> has been renamed to <code>[details]</code></li>
-<li><code>github</code> has been renamed to <code>source_link</code></li>
-<li>Example of a bot config file in v4 and v5:</li>
-</ul>
-<p>v4:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[Locations]</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Necto</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">logo_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">./necto_logo.png</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">looks_config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">./appearance.cfg</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">python_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">./bot.py</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="na">requirements_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">./requirements.txt</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="na">maximum_tick_rate_preference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">120</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">[Details]</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="na">developer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Rolv, Soren, and several contributors</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="na">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Necto is the official RLGym community bot, trained using PPO with workers run by people all around the world.</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="na">fun_fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Necto uses an attention mechanism, commonly used for text understanding, to support any number of players</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="na">github</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/Rolv-Arild/Necto</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="na">language</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">rlgym</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="na">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1v1, teamplay</span>
-</code></pre></div>
-<p>v5:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">[settings]</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Necto&quot;</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">logo_file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;necto_logo.png&quot;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">loadout_config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;loadout.toml&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">run_command</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;.</span><span class="se">\\</span><span class="s2">venv</span><span class="se">\\</span><span class="s2">Scripts</span><span class="se">\\</span><span class="s2">python bot.py&quot;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">run_command_linux</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;./venv/bin/python bot.py&quot;</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">[details]</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">developer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Rolv, Soren, and several contributors&quot;</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Necto is the official RLGym community bot, trained using PPO with workers run by people all around the world.&quot;</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">fun_fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Necto uses an attention mechanism, commonly used for text understanding, to support any number of players&quot;</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="n">source_link</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://github.com/Rolv-Arild/Necto&quot;</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">language</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rlgym&quot;</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="n">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;1v1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;teamplay&quot;</span><span class="p">]</span>
-</code></pre></div>
-</li>
-</ul>
-</li>
-<li>
-<p><em>All processes</em> (bot, script &amp; hivemind) are now similar to v4's concept of a <code>StandaloneBot</code></p>
-<ul>
-<li>This means that the only way to interface with <code>RLBotServer.exe</code> is by communicating via FlatBuffers over
-a TCP socket. By default, the server listens to <code>0.0.0.0:23234</code>. The port can be changed by passing in the
-desired port as the first argument when starting the binary, for example <code>RLBotServer.exe 54315</code>.</li>
-<li>In Python specifically, there is no longer a <code>BaseAgent</code> class. Instead, you must implement the <code>Bot</code> class.</li>
-<li>Must read the environment variable <code>RLBOT_SERVER_PORT</code> to know what port they can connect to the server on.</li>
-<li>Must read the environment variable <code>RLBOT_SPAWN_IDS</code>. It will be a single integer for bots and scripts, but for
-  hiveminds it will be a comma separated list of integers.</li>
-</ul>
-</li>
-<li>Various changes have been made to the <code>GameTickPacket</code><ul>
-<li>Removed <code>num_cars</code>/<code>num_pads</code> as the list of cars/pads is now only as long as the actual number of cars/pads</li>
-<li>Renamed <code>cars</code> to <code>players</code></li>
-<li>Replaced <code>ball</code> with <code>balls</code> which is now a list of balls in the game</li>
-<li>Note: This list <em>can</em> have a length of zero in a normal match. It's recommended to check the length of
-  the list before assuming there's a ball in the game.</li>
-<li>
-<p>In <code>PlayerInfo</code>:</p>
-<ul>
-<li>Replaced <code>is_demolished</code> with <code>demolished_timeout</code>: <code>demolished_timeout</code> is a float representing the time
-  until the player respawns after being demolished. It is zero if the player is not demolished.</li>
-<li>Added <code>dodge_timeout</code>: A float representing the time the player has left before they can no longer dodge.
-  <code>-1</code> if the player cannot dodge (e.g. because they're on the ground or the dodge time window expired).</li>
-<li>Replaced <code>has_wheel_contact</code> with a new concept, <code>AirState</code>. <code>AirState</code> is defined as:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">enum</span><span class="w"> </span><span class="nc">AirState</span><span class="o">:</span><span class="w"> </span><span class="n">ubyte</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="c1">/// All wheels are on the ground</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="n">OnGround</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="c1">/// When the bot is jumping,</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="c1">/// then InAir right after</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="n">Jumping</span><span class="p">,</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="c1">/// When the bot is double jumping,</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="c1">/// then InAir right after</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="n">DoubleJumping</span><span class="p">,</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="c1">/// When the bot is dodging,</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="c1">/// then InAir right after</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="n">Dodging</span><span class="p">,</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="n">InAir</span><span class="p">,</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">}</span>
-</code></pre></div>
-<ul>
-<li>Removed <code>jumped</code> and <code>double_jumped</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>The above list may be incomplete.</p>
+<p>The migration guide for the Python interface gives a good overview of the breaking changes and what to do instead so we refer to that: https://github.com/VirxEC/python-interface/wiki/Migration</p>
 <h2 id="links-and-resources">Links and Resources</h2>
-<p>Below we list where to find the implementation of RLBot v5, the language interfaces, and related documentation.
+<p>Below you can find links to the implementation of RLBot v5, the language interfaces, and related documentation.
 This wiki will also be updated as things stabilize.</p>
 <p><strong>RLBot v5 framework:</strong></p>
 <ul>

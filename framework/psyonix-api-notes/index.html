@@ -1357,14 +1357,18 @@
 <p>We're aiming for a backwards compatibility with this first bot API release, so expect your bots to play almost exactly like they used to!</p>
 <ul>
 <li>The renderer now has occlusion, so 3D lines disappear behind objects correctly!</li>
-<li>You can still use state setting, except:</li>
+<li>You can still use state setting, except:<ul>
 <li>Can’t manipulate boost pads</li>
 <li>Can’t mess with the car’s jump state</li>
 <li>Can’t provide partial location / velocity, must fully specify</li>
-<li>The GameTickPacket will have all the same data except:</li>
+</ul>
+</li>
+<li>The GameTickPacket will have all the same data except:<ul>
 <li>It will have non-interpolated values straight from the physics engine, same as RigidBodyTick!</li>
 <li>Latest ball touch will always be blank for now (fixed)</li>
 <li>Boost respawn timers don't work yet</li>
+</ul>
+</li>
 <li>Unfortunately, quick chat is not supported yet (1/2 fixed)</li>
 <li>We only support Soccer, exhibition mode at the moment. (More modes are supported)</li>
 <li>The game data will currently update in memory at 60Hz, ~~regardless of Rocket League's frame rate~~ (anecdotally it seems to be capped at the frame rate). We may be able to tune that later. (We now have 120hz)</li>
@@ -1376,9 +1380,11 @@
 <li>LAN support is a possibility in the future. With a virtual LAN (VLAN), this could mean being able to play against bots on different machines over the internet, with your friends!</li>
 <li>Support for Linux and macOS is planned! (C++ and C# bots won't work)</li>
 <li>Rumble support is planned. Bots will be able to take part in the mayhem! (Done)</li>
-<li>Unrelated to the API:</li>
+<li>Unrelated to the API:<ul>
 <li>DomNomNom is working on a team communication system for bots. (Done)</li>
 <li>Chip is working on advanced pathfinding for bots.</li>
+</ul>
+</li>
 </ul>
 <h2 id="regarding-bugs">Regarding Bugs</h2>
 <p>This is a lot buggier than a normal release--RLBot broke due to a Rocket League patch and we chose to move forward with the official API rather than fix our old injection technique. Sorry for the bugs / missing features!</p>
