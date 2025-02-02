@@ -1686,7 +1686,7 @@
 
 <h1 id="configuration-files">Configuration Files</h1>
 <p>RLBot uses the standard <code>.toml</code> format for all configuration files. To see how TOML works, check out the <a href="https://toml.io/en/">TOML spec</a>.</p>
-<p>There are four types of config files, commonly known as:</p>
+<p>The framework uses four types of config files, commonly known as:</p>
 <ul>
 <li><code>bot.toml</code> <a href="#bot-script-config-files">GOTO</a></li>
 <li><code>script.toml</code> <a href="#bot-script-config-files">GOTO</a></li>
@@ -1694,21 +1694,21 @@
 <li><code>match.toml</code> <a href="#match-config-files">GOTO</a></li>
 </ul>
 <h2 id="bot-script-config-files">Bot &amp; Script Config Files</h2>
-<p>A bot/script config file define a bot/script and its attributes, closely resembling the <code>PlayerConfiguration</code>/<code>ScriptConfiguration</code> from the <a href="https://github.com/RLBot/flatbuffers-schema/blob/main/matchconfig.fbs">flatbuffer schema</a>.
+<p>A bot/script config file defines a bot/script and its attributes, closely resembling the <code>PlayerConfiguration</code>/<code>ScriptConfiguration</code> from the <a href="https://github.com/RLBot/flatbuffers-schema/blob/main/matchconfig.fbs">flatbuffer schema</a>.
 The content of config files for bots and scripts are very similar, so the file extension indicates whether it is a bot or script:</p>
 <ul>
 <li><strong>Bots:</strong> Named <code>bot.toml</code> or ends with <code>.bot.toml</code>. Here are examples of valid names: <code>bot.toml</code>, <code>Necto.bot.toml</code>, <code>atba.bot.toml</code></li>
 <li><strong>Scripts:</strong> Named <code>script.toml</code> or ends with <code>.script.toml</code>. Here are examples of valid names: <code>script.toml</code>, <code>tron.script.toml</code>, <code>SCB.script.toml</code></li>
 </ul>
 <p>It should also be noted that whatever prefixes the <code>.bot.toml</code>/<code>.script.toml</code> file name will not be used by anything in RLBot.</p>
-<p>The sections and fields of bot/script config files:</p>
+<p><strong>The sections and fields:</strong></p>
 <ul>
 <li><code>[settings]</code> - Used by both RLBot and the GUI<ul>
 <li><code>agent_id</code> - The static, unique id that is associated with this bot. Preferred format is <code>"author/bot-name"</code>.</li>
 <li><code>name</code> - The name of the bot/script.</li>
 <li><code>loadout_file</code> - The path to the <a href="#loadout-config-files">loadout file</a> for the bot.</li>
 <li><code>root_dir</code> - A path to the root directory of the bot, e.g. <code>"./bin/"</code>. The <code>run_command</code> will be run from the root directory.</li>
-<li><code>run_command</code> - The command to run the bot/script on Windows.</li>
+<li><code>run_command</code> - The command to run the bot/script on Windows. If empty, the bot must be started manually (This may be handy during development if a default <code>agent_id</code> is coded into the bot).</li>
 <li><code>run_command_linux</code> - The command to run the bot/script on Linux.</li>
 <li><code>logo_file</code> - The path to the logo file for the bot/script.</li>
 </ul>
@@ -1720,15 +1720,15 @@ The content of config files for bots and scripts are very similar, so the file e
 <li><code>developer</code> - The developer(s) of the bot/script.</li>
 <li><code>language</code> - The language the bot/script is written in.</li>
 <li><code>tags</code> - A list of tags that describe the bot/script. These will affect which categories in the GUI your bot/script appear in. Possible tags:<ul>
-<li><code>1v1</code></li>
-<li><code>teamplay</code></li>
+<li><code>1v1</code> - The bot plays traditional 1v1 soccer.</li>
+<li><code>teamplay</code> - The bot considers team mates and rotates.</li>
 <li><code>goalie</code> - Only add this tag if your bot <em>only</em> plays as a goalie. Incompatible with teamplay tag!</li>
-<li><code>hoops</code></li>
-<li><code>dropshot</code></li>
-<li><code>snow-day</code></li>
-<li><code>spike-rush</code></li>
-<li><code>heatseaker</code></li>
-<li><code>memebot</code></li>
+<li><code>hoops</code> - The bot understands the Hoops game mode.</li>
+<li><code>dropshot</code> - The bot understands the Dropshot game mode.</li>
+<li><code>snow-day</code> - The bot understands the Snow Day game mode.</li>
+<li><code>spike-rush</code> - The bot understands the Spike-Rush game mode.</li>
+<li><code>heatseaker</code> - The bot understands the Heatseeker game mode.</li>
+<li><code>memebot</code> - The bot has an untraditional play style.</li>
 </ul>
 </li>
 </ul>
@@ -1840,8 +1840,8 @@ The content of config files for bots and scripts are very similar, so the file e
 </code></pre></div>
 </details>
 <h2 id="match-config-files">Match Config Files</h2>
-<p>A match configu file, e.g. <code>match.toml</code>, define a match and its settings, closely resembling <code>MatchConfiguration</code> from the <a href="https://github.com/RLBot/flatbuffers-schema/blob/main/matchconfig.fbs">flatbuffer schema</a>.</p>
-<p>Sections and fields:</p>
+<p>A match config file, e.g. <code>match.toml</code>, define a match and its settings, closely resembling <code>MatchConfiguration</code> from the <a href="https://github.com/RLBot/flatbuffers-schema/blob/main/matchconfig.fbs">flatbuffer schema</a>.</p>
+<p><strong>Sections and fields:</strong></p>
 <ul>
 <li><code>[rlbot]</code><ul>
 <li><code>launcher</code> - Indicates how Rocket League should be launched if it is not already running. Either <code>"Steam"</code> (default), <code>"Epic"</code>, <code>"Custom"</code> (see <code>launcher_arg</code>), or <code>NoLaunch</code>.</li>
@@ -1853,7 +1853,7 @@ The content of config files for bots and scripts are very similar, so the file e
 </ul>
 </li>
 <li><code>[match]</code><ul>
-<li><code>game_mode</code> - The game mode. Either <code>"soccer"</code>, <code>"hoops"</code>, <code>"dropshot"</code>, <code>"hockey"</code>, <code>"rumble"</code>, <code>"heatseeker"</code>, <code>"gridiron"</code>, or <code>"knockout"</code>. This affects a few of the game rules although many game modes can also be recreated solely from mutators. See what mutators and game mode combinations make up the official modes <a href="https://github.com/VirxEC/python-interface/tree/master/tests/gamemodes">here</a>.</li>
+<li><code>game_mode</code> - The game mode. Either <code>"Soccer"</code>, <code>"Hoops"</code>, <code>"Dropshot"</code>, <code>"Hockey"</code>, <code>"Rumble"</code>, <code>"Heatseeker"</code>, <code>"Gridiron"</code>, or <code>"Knockout"</code>. This affects a few of the game rules although many game modes can also be recreated solely from mutators. See what mutators and game mode combinations make up the official modes <a href="https://github.com/VirxEC/python-interface/tree/master/tests/gamemodes">here</a>.</li>
 <li><code>game_map_upk</code> - The map upk file to load, e.g. <code>"UtopiaStadium_P"</code>. On Steam version of Rocket League this can be used to load custom map files, but on Epic version it only works on the Psyonix maps. Available maps can be found <a href="https://github.com/VirxEC/python-interface/blob/master/rlbot/utils/maps.py">here</a>.</li>
 <li><code>cars</code> - A list of players in the match. See the car section below for fields of cars.</li>
 <li><code>scripts</code> - A list of scripts in the match. See the script section below for fields of scripts.</li>
@@ -1867,25 +1867,44 @@ The content of config files for bots and scripts are very similar, so the file e
 </ul>
 </li>
 <li><code>[mutators]</code><ul>
-<li>... TODO. See <a href="https://github.com/RLBot/flatbuffers-schema/blob/main/matchconfig.fbs#L288">flatbuffer schema</a>.</li>
+<li><code>match_length</code> - Duration of the match. Either <code>"FiveMinutes"</code> (default), <code>"TenMinutes"</code>, <code>"TwentyMinutes"</code>, or <code>"Unlimited"</code>.</li>
+<li><code>max_score</code> - Max score of match. If this score is reached, the team immediately wins. Either <code>"Default"</code>, <code>"OneGoal"</code>, <code>"ThreeGoals"</code>, <code>"FiveGoals"</code>, <code>"SevenGoals"</code>, or <code>"Unlimited"</code>.</li>
+<li><code>multi_ball</code> - The number of balls. Either <code>"One"</code>, <code>"Two"</code>, <code>"Four"</code>, or <code>"Six"</code>.</li>
+<li><code>overtime</code> - The overtime rules and tiebreaker. Either <code>"Unlimited"</code> (default), <code>"FiveMaxFirstScore"</code>, or <code>"FiveMaxRandomTeam"</code>.</li>
+<li><code>series_length</code> - The series length (no effect in practice). Either <code>"Unlimited"</code> (default), <code>"ThreeGames"</code>, <code>"FiveGames"</code>, or <code>"SevenGames"</code>.</li>
+<li><code>game_speed</code> - A game speed multiplier. Either <code>"Default"</code>, <code>"SloMo"</code>, or <code>"TimeWarp"</code>.</li>
+<li><code>ball_max_speed</code> - Ball max speed. Either <code>"Default"</code>, <code>"Slow"</code>, <code>"Fast"</code>, or <code>"SuperFast"</code>.</li>
+<li><code>ball_type</code> - Ball type and shape. Either <code>"Default"</code>, <code>"Cube"</code>, <code>"Puck"</code>, <code>"Basketball"</code>, <code>"Beachball"</code>, <code>"Anniversary"</code>, <code>"Haunted"</code>, <code>"Ekin"</code>, or <code>"SpookyCube"</code>.</li>
+<li><code>ball_weight</code> - Ball weight and how much is curves. Either <code>"Default"</code>, <code>"Light"</code>, <code>"Heavy"</code>, <code>"SuperLight"</code>, <code>"CurveBall"</code>, <code>"BeachBallCurve"</code>, or <code>"MagnusFutBall"</code>.</li>
+<li><code>ball_size</code> - Ball size. Either <code>"Default"</code>, <code>"Small"</code>, <code>"Medium"</code>, <code>"Large"</code>, or <code>"Gigantic"</code>.</li>
+<li><code>ball_bounciness</code> - Ball bounciness. Either <code>"Default"</code>, <code>"Low"</code>, <code>"High"</code>, <code>"SuperHigh"</code>, or <code>"LowishBounciness"</code>.</li>
+<li><code>boost_amount</code> - Boost meter behaviour. Either <code>"NormalBoost"</code>, <code>"UnlimitedBoost"</code>, <code>"SlowRecharge"</code>, <code>"RapidRecharge"</code>, or <code>"NoBoost"</code>.</li>
+<li><code>rumble</code> - Rumble item rules. Either <code>"NoRumble"</code> (default), <code>"DefaultRumble"</code>, <code>"Slow"</code>, <code>"Civilized"</code>, <code>"DestructionDerby"</code>, <code>"SpringLoaded"</code>, <code>"SpikesOnly"</code>, <code>"SpikeRush"</code>, <code>"HauntedBallBeam"</code>, <code>"Tactical"</code>, or <code>"BatmanRumble"</code>.</li>
+<li><code>boost_strength</code> - Boost strength multiplier. Either <code>"One"</code> (default), <code>"OneAndAHalf"</code>, <code>"Two"</code>, <code>"Five"</code>, or <code>"Ten"</code>.</li>
+<li><code>gravity</code> - Strength of gravity. Either <code>"Default"</code>, <code>"Low"</code>, <code>"High"</code>, <code>"SuperHigh"</code>, or <code>"Reverse"</code>.</li>
+<li><code>demolish</code> - Demolition conditions. Either <code>"Default"</code>, <code>"Disabled"</code>, <code>"FriendlyFire"</code>, <code>"OnContact"</code>, or <code>"OnContactFF"</code>.</li>
+<li><code>respawn_time</code> - Demolition respawn time. Either <code>"ThreeSeconds"</code> (default), <code>"TwoSeconds"</code>, <code>"OneSecond"</code>, or <code>"DisableGoalReset"</code>.</li>
+<li><code>max_time</code> - Max real-time duration of match including kickoff, replays, and more. If the score is tied upon time-out, the number of shots determine the winner. Either <code>"Default"</code> or <code>"ElevenMinutes"</code>.</li>
+<li><code>game_event</code> - Additional game behaviour for custom modes. Either <code>"Default"</code>, <code>"Haunted"</code>, or <code>"Rugby"</code>.</li>
+<li><code>audio</code> - Additional audio options for custom modes. Either <code>"Default"</code> or <code>"Haunted"</code>.</li>
 </ul>
 </li>
 </ul>
-<p>Car fields:</p>
+<p><strong>Car fields:</strong></p>
 <ul>
-<li><code>team</code> - The team of the player. Either <code>0</code> for blue or <code>1</code> for orange.</li>
-<li><code>type</code> - Determines what controls the car. Either <code>"rlbot"</code> (default), <code>"human"</code>, or <code>"psyonix"</code> (see <code>skill</code>), </li>
-<li><code>skill</code> - Determines the skill level of a Psyonix bot. Either <code>"beginner"</code>, <code>"rookie"</code>, <code>"pro"</code>, and <code>"allstar"</code>.</li>
-<li><code>config</code> - A path to a <a href="#bot-script-config-files"><code>bot.toml</code> config file</a>. Unusued if <code>type</code> is not <code>"rlbot"</code> or <code>"psyonix"</code>. For Psyonix bots, the config file determines name and loadout.</li>
+<li><code>team</code> - The team of the player. Either <code>"Blue"</code>/<code>0</code> for blue or <code>"Orange"</code>/<code>1</code> for orange.</li>
+<li><code>type</code> - Determines what controls the car. Either <code>"RLBot"</code> (default), <code>"Human"</code>, or <code>"Psyonix"</code> (see <code>skill</code>), </li>
+<li><code>skill</code> - Determines the skill level of a Psyonix bot. Either <code>"Beginner"</code>, <code>"Rookie"</code>, <code>"Pro"</code>, and <code>"Allstar"</code>.</li>
+<li><code>config</code> - A path to a <a href="#bot-script-config-files"><code>bot.toml</code> config file</a>. Unusued if <code>type</code> is not <code>"RLBot"</code> or <code>"Psyonix"</code>. For Psyonix bots, the config file determines name and loadout.</li>
 </ul>
-<p>Script fields:</p>
+<p><strong>Script fields:</strong></p>
 <ul>
 <li><code>config</code> - A path to a <a href="#bot-script-config-files"><code>script.toml</code> config file</a>.</li>
 </ul>
 <details class="example">
 <summary>Example <code>match.toml</code> with default values + some cars and scripts</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">[rlbot]</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">launcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;steam&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">launcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Steam&quot;</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">auto_start_bots</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">[match]</span>
@@ -1902,27 +1921,27 @@ The content of config files for bots and scripts are very similar, so the file e
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="k">[[cars]]</span>
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="n">team</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;atba/atba.bot.toml&quot;</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rlbot&quot;</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;RLBot&quot;</span><span class="w">  </span><span class="c1"># Unnecessary, since it is default</span>
 <a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
 <a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="k">[[cars]]</span>
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="n">team</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;necto/bot.toml&quot;</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;rlbot&quot;</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
 <a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="k">[[cars]]</span>
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="n">team</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;psyonix&quot;</span>
-<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="n">skill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;pro&quot;</span>
-<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>
-<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="k">[[cars]]</span>
-<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="n">team</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;human&quot;</span>
-<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>
-<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="k">[[scripts]]</span>
-<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;zero-g.script.toml&quot;</span>
-<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
-<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="k">[mutators]</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="k">[[cars]]</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="n">team</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Psyonix&quot;</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="n">skill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Pro&quot;</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="k">[[cars]]</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="n">team</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Human&quot;</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="k">[[scripts]]</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;zero-g.script.toml&quot;</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="k">[mutators]</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="c1"># All mutators with default values</span>
 <a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="n">match_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;FiveMinutes&quot;</span>
 <a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="n">max_score</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Default&quot;</span>
 <a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="n">multi_ball</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;One&quot;</span>
