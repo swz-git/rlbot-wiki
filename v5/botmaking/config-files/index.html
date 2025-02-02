@@ -1734,6 +1734,10 @@ The content of config files for bots and scripts are very similar, so the file e
 </ul>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Psyonix Bot Presets</p>
+<p>If a Psyonix bot is not given a name, it will be a random <a href="https://rocketleague.fandom.com/wiki/Bot">standard Psyonix bot</a>. If a Psyonix bot's name matches a standard Psyonix bot, it will use the standard loadout of that bot unless a loadout file is specified.</p>
+</div>
 <details class="example">
 <summary>Example <code>bot.toml</code> that runs a Python bot in a virtual environment</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">[settings]</span>
@@ -1896,6 +1900,8 @@ The content of config files for bots and scripts are very similar, so the file e
 <li><code>type</code> - Determines what controls the car. Either <code>"RLBot"</code> (default), <code>"Human"</code>, or <code>"Psyonix"</code> (see <code>skill</code>), </li>
 <li><code>skill</code> - Determines the skill level of a Psyonix bot. Either <code>"Beginner"</code>, <code>"Rookie"</code>, <code>"Pro"</code>, and <code>"Allstar"</code>.</li>
 <li><code>config</code> - A path to a <a href="#bot-script-config-files"><code>bot.toml</code> config file</a>. Unusued if <code>type</code> is not <code>"RLBot"</code> or <code>"Psyonix"</code>. For Psyonix bots, the config file determines name and loadout.</li>
+<li><code>name</code> - Overrides the name in <code>config</code>.</li>
+<li><code>loadout_file</code> - Overrides the loadout in <code>config</code>.</li>
 </ul>
 <p><strong>Script fields:</strong></p>
 <ul>
